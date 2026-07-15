@@ -145,6 +145,8 @@
             border-radius: 5px;
             font-size: 18px;
             box-shadow: 0 4px 15px rgba(184, 144, 71, 0.4);
+            cursor: pointer;
+            border: none;
         }
 
         .hero-btn:hover {
@@ -209,7 +211,7 @@
         /* شبكة المنتجات الرجالية */
         .products-container {
             max-width: 1200px;
-            margin: 0 auto 80px;
+            margin: 0 auto 40px;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
@@ -389,7 +391,7 @@
         .cart-item-title {
             font-size: 15px;
             font-weight: 500;
-            margin-bottom: 30px;
+            margin-bottom: 5px;
         }
 
         .cart-item-size {
@@ -435,7 +437,7 @@
         .checkout-btn {
             display: block;
             width: 100%;
-            background-color: #25d366; /* لون الواتساب المريح لإتمام الطلب */
+            background-color: #25d366;
             color: white;
             text-align: center;
             padding: 12px;
@@ -468,43 +470,95 @@
             display: block;
         }
 
-        /* قسم آراء العملاء (Reviews) */
-        .reviews-container {
-            max-width: 1200px;
+        /* قسم إضافة الآراء والتعليقات الجديد التفاعلي */
+        .reviews-section {
+            max-width: 800px;
             margin: 0 auto 80px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
             padding: 0 20px;
         }
 
-        .review-card {
+        .review-form {
             background: #fff;
             padding: 30px;
             border-radius: 8px;
             border: 1px solid #e2e8f0;
             box-shadow: 0 4px 12px rgba(15, 23, 42, 0.02);
-            text-align: center;
+            margin-bottom: 35px;
         }
 
-        .stars {
-            color: #fbbf24;
-            margin-bottom: 15px;
+        .review-form h4 {
             font-size: 18px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
         }
 
-        .review-text {
-            font-size: 15px;
-            color: #475569;
-            line-height: 1.6;
+        .form-group {
             margin-bottom: 15px;
-            font-style: italic;
         }
 
-        .reviewer-name {
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 5px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .form-group textarea {
+            height: 100px;
+            resize: none;
+        }
+
+        .submit-review-btn {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .submit-review-btn:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* مكان عرض الآراء المضافة */
+        .reviews-feed {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .user-review-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 6px;
+            border-right: 4px solid var(--accent-color);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .user-review-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .user-review-name {
             font-weight: bold;
             color: var(--primary-color);
+        }
+
+        .user-review-stars {
+            color: #fbbf24;
+        }
+
+        .user-review-text {
+            color: #475569;
             font-size: 14px;
+            line-height: 1.5;
         }
 
         /* تنسيق قسم التواصل والاستفسار */
@@ -647,9 +701,8 @@
         <a href="#" class="logo">SAYED<span> STORE</span></a>
         <ul class="nav-links">
             <li><a href="#">الرئيسية</a></li>
-            <li><a href="#">قمصان</a></li>
-            <li><a href="#">تيشيرتات</a></li>
-            <li><a href="#">بليزرات وبدل</a></li>
+            <li><a href="#summer-tshirts">تيشيرتات صيف 2026</a></li>
+            <li><a href="#products">كل المنتجات</a></li>
             <li><a href="#contact">تواصل معنا</a></li>
         </ul>
         <div class="nav-icons">
@@ -664,10 +717,10 @@
     <header class="hero">
         <h2>أناقتك تبدأ من هنا</h2>
         <p>اكتشف تشكيلة "سيد ستور" الرجالية الفاخرة لعام 2026</p>
-        <a href="#products" class="hero-btn" id="shopNowBtn">تسوق المجموعة الآن</a>
+        <button class="hero-btn" id="shopNowBtn">تسوق المجموعة الآن</button>
     </header>
 
-    <!-- شريط مميزات المتجر الفاخر -->
+    <!-- شريط مميزات المتجر الفاخر بعد التعديل -->
     <div class="features-bar">
         <div class="feature-item">
             <i class="fa-solid fa-truck-fast"></i>
@@ -682,7 +735,7 @@
         <div class="feature-item">
             <i class="fa-solid fa-shield-halved"></i>
             <h4>أعلى جودة مضمونة</h4>
-            <p>خامات قطنية ممتازة وتقفيل مستورد</p>
+            <p>خامات ممتازة وتقفيل مستورد</p>
         </div>
     </div>
 
@@ -704,14 +757,73 @@
         </div>
     </div>
 
-    <!-- عنوان قسم المنتجات -->
-    <div class="section-title" id="products">
-        <h3>أحدث وصول في المتجر</h3>
+    <!-- ================= قسم تيشيرتات الموضة الصيفي 2026 ================= -->
+    <div class="section-title" id="summer-tshirts">
+        <h3>تيشيرتات الموضة الصيفي 2026</h3>
     </div>
 
-    <!-- شبكة المنتجات -->
     <div class="products-container">
-        
+        <!-- تيشيرت صيفي 1 -->
+        <div class="product-card" data-id="101">
+            <div class="product-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600" alt="تيشيرت اوفر سايز">
+            </div>
+            <div class="product-info">
+                <div>
+                    <p class="product-category">صيف 2026</p>
+                    <h4 class="product-title">تيشيرت أوفر سايز تريندي - أسود</h4>
+                    <p class="product-price" data-price="290">290 ج.م</p>
+                </div>
+                <div>
+                    <div class="size-selector">
+                        <label>المقاس:</label>
+                        <select class="product-size">
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                            <option value="XXL">XXL</option>
+                        </select>
+                    </div>
+                    <button class="quick-add-btn quick-add">إضافة للسلة <i class="fa-solid fa-plus"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- تيشيرت صيفي 2 -->
+        <div class="product-card" data-id="102">
+            <div class="product-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=600" alt="تيشيرت بيزك">
+            </div>
+            <div class="product-info">
+                <div>
+                    <p class="product-category">صيف 2026</p>
+                    <h4 class="product-title">تيشيرت بيزك سادة راوند - أبيض</h4>
+                    <p class="product-price" data-price="220">220 ج.م</p>
+                </div>
+                <div>
+                    <div class="size-selector">
+                        <label>المقاس:</label>
+                        <select class="product-size">
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                            <option value="XXL">XXL</option>
+                        </select>
+                    </div>
+                    <button class="quick-add-btn quick-add">إضافة للسلة <i class="fa-solid fa-plus"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- عنوان قسم باقي المنتجات -->
+    <div class="section-title" id="products">
+        <h3>كل المنتجات الكلاسيكية والكاجوال</h3>
+    </div>
+
+    <!-- شبكة باقي المنتجات -->
+    <div class="products-container">
         <!-- منتج 1 -->
         <div class="product-card" data-id="1">
             <div class="product-img-wrapper">
@@ -763,49 +875,45 @@
                 </div>
             </div>
         </div>
-
-        <!-- منتج 3 -->
-        <div class="product-card" data-id="3">
-            <div class="product-img-wrapper">
-                <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600" alt="تيشيرت رجالي">
-            </div>
-            <div class="product-info">
-                <div>
-                    <p class="product-category">تيشيرتات</p>
-                    <h4 class="product-title">تيشيرت بولو صيفي مريح</h4>
-                    <p class="product-price" data-price="260">260 ج.م</p>
-                </div>
-                <div>
-                    <div class="size-selector">
-                        <label>المقاس:</label>
-                        <select class="product-size">
-                            <option value="M">M</option>
-                            <option value="L">L</option>
-                            <option value="XL">XL</option>
-                            <option value="XXL">XXL</option>
-                        </select>
-                    </div>
-                    <button class="quick-add-btn quick-add">إضافة للسلة <i class="fa-solid fa-plus"></i></button>
-                </div>
-            </div>
-        </div>
-
     </div>
 
-    <!-- قسم آراء العملاء -->
+    <!-- ================= قسم شاركنا رأيك (آراء تفاعلية) ================= -->
     <div class="section-title">
-        <h3>ماذا يقول عملاؤنا؟</h3>
+        <h3>آراء زبائننا وشاركونا تجربتكم</h3>
     </div>
-    <div class="reviews-container">
-        <div class="review-card">
-            <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-            <p class="review-text">"الخامة بجد ممتازة والتقفيل نضيف جداً، والمقاس مظبوط بالملي زي الجدول. شكراً سيد ستور على المعاملة الراقية وسرعة التوصيل."</p>
-            <p class="reviewer-name">أحمد متولي - القاهرة</p>
+    
+    <div class="reviews-section">
+        <!-- صندوق كتابة الرأي -->
+        <div class="review-form">
+            <h4>أضف رأيك في منتجاتنا:</h4>
+            <form id="addReviewForm">
+                <div class="form-group">
+                    <input type="text" id="reviewerName" placeholder="اكتب اسمك بالكامل" required>
+                </div>
+                <div class="form-group">
+                    <select id="reviewRating" required>
+                        <option value="5">⭐⭐⭐⭐⭐ (ممتاز جداً)</option>
+                        <option value="4">⭐⭐⭐⭐ (جيد جداً)</option>
+                        <option value="3">⭐⭐⭐ (متوسط)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea id="reviewText" placeholder="اكتب رأيك في خامات وجودة سيد ستور بكل صراحة..." required></textarea>
+                </div>
+                <button type="submit" class="submit-review-btn">إرسال الرأي فوراً</button>
+            </form>
         </div>
-        <div class="review-card">
-            <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-            <p class="review-text">"أكتر حاجة عجبتني إنهم وافقوا أفتح الشحنة وأعاين القميص قبل ما أدفع للمندوب، ثقة وأمانة في البيع والقطن ناعم جداً."</p>
-            <p class="reviewer-name">محمود كريم - الإسكندرية</p>
+
+        <!-- التغذية المباشرة لعرض الآراء الجديدة -->
+        <div class="reviews-feed" id="reviewsFeed">
+            <!-- رأي افتراضي أول تفاعلي يظهر مسبقاً -->
+            <div class="user-review-card">
+                <div class="user-review-header">
+                    <span class="user-review-name">أحمد متولي</span>
+                    <span class="user-review-stars">⭐⭐⭐⭐⭐</span>
+                </div>
+                <p class="user-review-text">التقفيل نضيف والمقاس مظبوط جداً، تجربة ممتازة وإن شاء الله مش الأخيرة.</p>
+            </div>
         </div>
     </div>
 
@@ -846,7 +954,7 @@
         <span>استفسر الآن</span>
     </a>
 
-    <!-- كود الجافا سكريبت لتشغيل السلة والمقاسات والواتساب المباشر -->
+    <!-- كود الجافا سكريبت لتشغيل السلة والمقاسات والواتساب المباشر وإضافة الآراء -->
     <script>
         const cartIcon = document.getElementById('cartIcon');
         const cartSidebar = document.getElementById('cartSidebar');
@@ -859,6 +967,8 @@
         const emptyCartMsg = document.getElementById('emptyCartMsg');
         const shopNowBtn = document.getElementById('shopNowBtn');
         const checkoutBtn = document.getElementById('checkoutBtn');
+        const addReviewForm = document.getElementById('addReviewForm');
+        const reviewsFeed = document.getElementById('reviewsFeed');
 
         let cartItems = [];
 
@@ -876,15 +986,18 @@
         closeCart.addEventListener('click', closeCartFunc);
         cartOverlay.addEventListener('click', closeCartFunc);
 
-        // 2. النزول السلس عند ضغط الأزرار والروابط الداخلية
+        // 2. النزول السلس عند ضغط زر تسوق المجموعة الآن ليفتح قسم التيشيرتات الصيفية مباشرة
         shopNowBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('summer-tshirts').scrollIntoView({ behavior: 'smooth' });
         });
 
-        document.querySelector('a[href="#contact"]').addEventListener('click', (e) => {
-            e.preventDefault();
-            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        // النزول السلس لروابط الناف بار الداخلية
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
         });
 
         // 3. إضافة المنتجات للسلة مع المقاس المختار
@@ -897,9 +1010,7 @@
                 const img = productCard.querySelector('img').src;
                 const size = productCard.querySelector('.product-size').value;
 
-                // تعريف فريد للمنتج مبني على (الأيدي + المقاس) حتى لو تكرر نفس المنتج بمقاسين مختلفين ينزل منفصل
                 const itemKey = id + '-' + size;
-
                 const existingItem = cartItems.find(item => item.itemKey === itemKey);
 
                 if (existingItem) {
@@ -956,7 +1067,7 @@
             updateCartUI();
         };
 
-        // 6. تجميع الطلب وإرساله تفصيلياً عبر الواتساب للرقم المطلوب
+        // 6. تجميع الطلب وإرساله تفصيلياً عبر الواتساب برقمك مباشرة
         checkoutBtn.addEventListener('click', () => {
             if (cartItems.length === 0) {
                 alert('سلتك فارغة، من فضلك أضف بعض المنتجات أولاً!');
@@ -979,11 +1090,38 @@
             message += `💰 الإجمالي الكلي: ${total} ج.م\n\n`;
             message += `يرجى تأكيد الطلب وتوضيح تفاصيل الشحن والاسم.`;
 
-            // تحويل النص لرابط متوافق مع الويب والواتساب
             const whatsappUrl = `https://wa.me/201273799978?text=${encodeURIComponent(message)}`;
-            
-            // فتح المحادثة في صفحة جديدة
             window.open(whatsappUrl, '_blank');
+        });
+
+        // 7. جافا سكريبت لإضافة الآراء تفاعلياً في نفس الصفحة
+        addReviewForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('reviewerName').value;
+            const rating = document.getElementById('reviewRating').value;
+            const text = document.getElementById('reviewText').value;
+
+            let starString = '';
+            for(let i=0; i<rating; i++) {
+                starString += '⭐';
+            }
+
+            const newReviewHTML = `
+                <div class="user-review-card" style="animation: fadeIn 0.5s ease;">
+                    <div class="user-review-header">
+                        <span class="user-review-name">${name}</span>
+                        <span class="user-review-stars">${starString}</span>
+                    </div>
+                    <p class="user-review-text">${text}</p>
+                </div>
+            `;
+
+            // إضافة الرأي الجديد في أعلى القائمة
+            reviewsFeed.insertAdjacentHTML('afterbegin', newReviewHTML);
+
+            // تصفير الحقول بعد الإرسال بنجاح
+            addReviewForm.reset();
         });
     </script>
 </body>
