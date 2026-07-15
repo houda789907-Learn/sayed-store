@@ -1,21 +1,21 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VOGUE - متجر الملابس العصري</title>
+    <title>سيد ستور | SAYED STORE - للأناقة الرجالية</title>
+    <!-- استيراد خط Tajawal المتميز وأيقونات FontAwesome -->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* إعدادات عامة */
+        /* إعدادات الألوان والتصميم الأساسي */
         :root {
-            --primary-color: #111111;
-            --accent-color: #cda45e;
-            --bg-color: #fcfcfc;
-            --text-color: #2b2b2b;
-            --light-gray: #f4f4f4;
+            --primary-color: #0f172a; /* كحلي غامق فاخر */
+            --accent-color: #b89047;  /* ذهبي هادئ */
+            --bg-color: #f8fafc;
+            --text-color: #1e293b;
+            --light-gray: #f1f5f9;
         }
 
         * {
@@ -45,11 +45,12 @@
         }
 
         .logo {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 900;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             color: var(--primary-color);
             text-decoration: none;
+            text-transform: uppercase;
         }
 
         .logo span {
@@ -66,6 +67,7 @@
             text-decoration: none;
             color: var(--text-color);
             font-weight: 500;
+            font-size: 16px;
         }
 
         .nav-links a:hover {
@@ -85,9 +87,9 @@
 
         /* القسم الرئيسي للموقع (Hero Section) */
         .hero {
-            height: 70vh;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                        url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1600') no-repeat center center/cover;
+            height: 75vh;
+            background: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.6)), 
+                        url('https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?q=80&w=1600') no-repeat center center/cover;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -98,45 +100,50 @@
         }
 
         .hero h2 {
-            font-size: 48px;
+            font-size: 52px;
             font-weight: 900;
             margin-bottom: 15px;
             letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .hero p {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 300;
             margin-bottom: 30px;
+            color: #e2e8f0;
         }
 
         .hero-btn {
             background-color: var(--accent-color);
             color: #fff;
-            padding: 12px 35px;
+            padding: 12px 40px;
             text-decoration: none;
             font-weight: bold;
-            border-radius: 50px;
+            border-radius: 5px;
             font-size: 18px;
+            box-shadow: 0 4px 15px rgba(184, 144, 71, 0.4);
         }
 
         .hero-btn:hover {
             background-color: #fff;
             color: var(--primary-color);
             transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255,255,255,0.2);
         }
 
-        /* عنوان القسم */
+        /* عنوان الأقسام */
         .section-title {
             text-align: center;
             margin: 60px 0 40px;
         }
 
         .section-title h3 {
-            font-size: 32px;
+            font-size: 30px;
             position: relative;
             display: inline-block;
             padding-bottom: 10px;
+            color: var(--primary-color);
         }
 
         .section-title h3::after {
@@ -145,12 +152,12 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
+            width: 50px;
             height: 3px;
             background-color: var(--accent-color);
         }
 
-        /* شبكة المنتجات */
+        /* شبكة المنتجات الرجالية */
         .products-container {
             max-width: 1200px;
             margin: 0 auto 80px;
@@ -162,21 +169,23 @@
 
         .product-card {
             background-color: #fff;
-            border-radius: 12px;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
             position: relative;
+            border: 1px solid #e2e8f0;
         }
 
         .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(15, 23, 42, 0.1);
         }
 
         .product-img-wrapper {
             position: relative;
             overflow: hidden;
-            height: 350px;
+            height: 380px;
+            background-color: #f8fafc;
         }
 
         .product-card img {
@@ -185,7 +194,7 @@
             object-fit: cover;
         }
 
-        /* زر الإضافة السريع يظهر عند الوقوف على المنتج */
+        /* زر الإضافة السريع */
         .quick-add {
             position: absolute;
             bottom: -50px;
@@ -193,13 +202,14 @@
             transform: translateX(-50%);
             background-color: var(--primary-color);
             color: #fff;
-            padding: 10px 25px;
+            padding: 12px 25px;
             border: none;
-            border-radius: 25px;
+            border-radius: 4px;
             cursor: pointer;
-            width: 80%;
+            width: 85%;
             font-weight: bold;
             opacity: 0;
+            font-size: 15px;
         }
 
         .product-card:hover .quick-add {
@@ -217,21 +227,22 @@
         }
 
         .product-category {
-            font-size: 13px;
-            color: #888;
+            font-size: 12px;
+            color: #64748b;
             text-transform: uppercase;
             margin-bottom: 5px;
+            font-weight: bold;
         }
 
         .product-title {
-            font-size: 18px;
+            font-size: 17px;
             font-weight: 500;
             margin-bottom: 10px;
             color: var(--primary-color);
         }
 
         .product-price {
-            font-size: 16px;
+            font-size: 18px;
             font-weight: 700;
             color: var(--accent-color);
         }
@@ -239,18 +250,20 @@
         /* تذييل الصفحة (Footer) */
         footer {
             background-color: var(--primary-color);
-            color: #ccc;
+            color: #94a3b8;
             text-align: center;
             padding: 40px 20px;
             font-size: 14px;
+            border-top: 3px solid var(--accent-color);
         }
 
         footer p {
             margin-bottom: 15px;
+            color: #f8fafc;
         }
 
         .social-icons a {
-            color: #fff;
+            color: #94a3b8;
             margin: 0 10px;
             font-size: 20px;
             text-decoration: none;
@@ -263,13 +276,14 @@
 </head>
 <body>
 
+    <!-- شريط التنقل العلوي -->
     <nav>
-        <a href="#" class="logo">VOGUE<span>.</span></a>
+        <a href="#" class="logo">SAYED<span> STORE</span></a>
         <ul class="nav-links">
             <li><a href="#">الرئيسية</a></li>
-            <li><a href="#">رجالي</a></li>
-            <li><a href="#">حريمي</a></li>
-            <li><a href="#">مجموعتنا</a></li>
+            <li><a href="#">قمصان</a></li>
+            <li><a href="#">تيشيرتات</a></li>
+            <li><a href="#">بليزرات وبدل</a></li>
         </ul>
         <div class="nav-icons">
             <i class="fa-solid fa-magnifying-glass"></i>
@@ -277,58 +291,65 @@
         </div>
     </nav>
 
+    <!-- واجهة الموقع الترحيبية -->
     <header class="hero">
-        <h2>تألق بأسلوبك الفريد</h2>
-        <p>اكتشف تشكيلة صيف 2026 الحصرية والمميزة الآن</p>
-        <a href="#" class="hero-btn">تسوق الآن</a>
+        <h2>أناقتك تبدأ من هنا</h2>
+        <p>اكتشف تشكيلة "سيد ستور" الرجالية الفاخرة لعام 2026</p>
+        <a href="#" class="hero-btn">تسوق المجموعة الآن</a>
     </header>
 
+    <!-- عنوان القسم -->
     <div class="section-title">
-        <h3>أحدث التصاميم المضافة</h3>
+        <h3>أحدث وصول في المتجر</h3>
     </div>
 
+    <!-- شبكة المنتجات -->
     <div class="products-container">
         
+        <!-- منتج 1: قميص رجالي كلاسيكي -->
         <div class="product-card">
             <div class="product-img-wrapper">
-                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600" alt="فستان صيفي">
+                <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600" alt="قميص كلاسيك">
                 <button class="quick-add">إضافة سريعة <i class="fa-solid fa-plus"></i></button>
             </div>
             <div class="product-info">
-                <p class="product-category">ملابس نسائية</p>
-                <h4 class="product-title">فستان صيفي أصفر كلاسيكي</h4>
-                <p class="product-price">450 ج.م</p>
+                <p class="product-category">قمصان</p>
+                <h4 class="product-title">قميص قطن كاجوال سليم فيت</h4>
+                <p class="product-price">390 ج.م</p>
             </div>
         </div>
 
+        <!-- منتج 2: بدلة كلاسيكية أنيقة -->
         <div class="product-card">
             <div class="product-img-wrapper">
-                <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?w=600" alt="بدلة كاجوال">
+                <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?w=600" alt="بدلة رجالية">
                 <button class="quick-add">إضافة سريعة <i class="fa-solid fa-plus"></i></button>
             </div>
             <div class="product-info">
-                <p class="product-category">ملابس رجالية</p>
-                <h4 class="product-title">جاكيت كاجوال أنيق - بيج</h4>
-                <p class="product-price">890 ج.م</p>
+                <p class="product-category">بليزرات وبدل</p>
+                <h4 class="product-title">بليزر كلاسيكي أنيق - رمادي</h4>
+                <p class="product-price">1,250 ج.م</p>
             </div>
         </div>
 
+        <!-- منتج 3: تيشيرت صيفي راقي -->
         <div class="product-card">
             <div class="product-img-wrapper">
-                <img src="https://images.unsplash.com/photo-1485968579580-b6d095142e6e?w=600" alt="جاكيت كلاسيك">
+                <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600" alt="تيشيرت رجالي">
                 <button class="quick-add">إضافة سريعة <i class="fa-solid fa-plus"></i></button>
             </div>
             <div class="product-info">
-                <p class="product-category">ملابس شتوية</p>
-                <h4 class="product-title">سترة صوف كلاسيكية</h4>
-                <p class="product-price">620 ج.م</p>
+                <p class="product-category">تيشيرتات</p>
+                <h4 class="product-title">تيشيرت بولو صيفي مريح</h4>
+                <p class="product-price">260 ج.م</p>
             </div>
         </div>
 
     </div>
 
+    <!-- فوتر الموقع -->
     <footer>
-        <p>جميع الحقوق محفوظة لمتجر VOGUE © 2026</p>
+        <p>جميع الحقوق محفوظة لـ SAYED STORE © 2026</p>
         <div class="social-icons">
             <a href="#"><i class="fa-brands fa-instagram"></i></a>
             <a href="#"><i class="fa-brands fa-facebook"></i></a>
