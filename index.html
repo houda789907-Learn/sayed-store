@@ -274,7 +274,7 @@
         .cart-sidebar {
             position: fixed;
             top: 0;
-            left: -400px; /* مخفية جهة اليسار */
+            left: -400px;
             width: 380px;
             height: 100vh;
             background-color: #fff;
@@ -286,7 +286,7 @@
         }
 
         .cart-sidebar.active {
-            left: 0; /* تظهر عند إضافة كلاس active */
+            left: 0;
         }
 
         .cart-header {
@@ -488,16 +488,6 @@
             box-shadow: 0 6px 20px rgba(18, 140, 126, 0.5);
         }
 
-        @media (max-width: 480px) {
-            .whatsapp-float span {
-                display: none;
-            }
-            .whatsapp-float {
-                padding: 15px;
-                border-radius: 50%;
-            }
-        }
-
         /* تذييل الصفحة (Footer) */
         footer {
             background-color: var(--primary-color);
@@ -522,6 +512,98 @@
 
         .social-icons a:hover {
             color: var(--accent-color);
+        }
+
+        /* ==========================================================================
+           تعديلات الشاشات والموبايل (Responsive Design Media Queries)
+           ========================================================================== */
+        
+        /* للأجهزة المتوسطة والصغيرة (التابلت والموبايل) */
+        @media (max-width: 992px) {
+            nav {
+                padding: 15px 5%;
+            }
+            .nav-links {
+                display: none; /* إخفاء الروابط النصية على الموبايل لعدم تداخل العناصر */
+            }
+            .hero h2 {
+                font-size: 38px;
+            }
+            .hero p {
+                font-size: 18px;
+            }
+        }
+
+        /* للموبايل والهواتف الذكية */
+        @media (max-width: 600px) {
+            nav {
+                padding: 15px 4%;
+            }
+            .logo {
+                font-size: 20px; /* تصغير اللوجو ليناسب الشاشة */
+            }
+            .hero {
+                height: 60vh; /* تقليل ارتفاع الهيرو لتناسب يد المستخدم */
+            }
+            .hero h2 {
+                font-size: 28px;
+            }
+            .hero p {
+                font-size: 15px;
+                margin-bottom: 20px;
+            }
+            .hero-btn {
+                padding: 10px 25px;
+                font-size: 16px;
+            }
+            .section-title {
+                margin: 40px 0 25px;
+            }
+            .section-title h3 {
+                font-size: 22px;
+            }
+            
+            /* تعديل شبكة المنتجات لتظهر كرتين بجانب بعض أو كرت واحد كبير */
+            .products-container {
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+                gap: 20px;
+                padding: 0 15px;
+            }
+            .product-img-wrapper {
+                height: 320px; /* تقصير طول الصورة قليلاً */
+            }
+            
+            /* جعل زر الإضافة السريعة دائماً ظاهر ومريح للضغط بالإصبع على الموبايل */
+            .quick-add {
+                opacity: 1;
+                bottom: 15px;
+                width: 90%;
+                padding: 10px;
+                font-size: 14px;
+            }
+            .product-card:hover .quick-add {
+                bottom: 15px;
+            }
+
+            /* السلة الجانبية لتأخذ حجم شاشة الموبايل بالكامل */
+            .cart-sidebar {
+                width: 100%;
+                left: -100%;
+            }
+            .cart-sidebar.active {
+                left: 0;
+            }
+
+            /* زر الواتساب العائم */
+            .whatsapp-float span {
+                display: none; /* إخفاء النص وترك الأيقونة فقط لراحة العين */
+            }
+            .whatsapp-float {
+                padding: 15px;
+                bottom: 20px;
+                right: 20px;
+                border-radius: 50%;
+            }
         }
     </style>
 </head>
@@ -623,7 +705,7 @@
 
     </div>
 
-    <!-- قسم الاستفسار والتواصل الجديد -->
+    <!-- قسم الاستفسار والتواصل -->
     <div class="section-title" id="contact">
         <h3>التواصل والاستفسارات</h3>
     </div>
@@ -654,7 +736,7 @@
         </div>
     </footer>
 
-    <!-- زر الواتساب العائم المربوط برقمك مباشرة -->
+    <!-- زر الواتساب العائم -->
     <a href="https://wa.me/201273799978" class="whatsapp-float" target="_blank" title="تواصل معنا عبر واتساب">
         <i class="fa-brands fa-whatsapp"></i>
         <span>استفسر الآن</span>
@@ -693,11 +775,6 @@
         shopNowBtn.addEventListener('click', (e) => {
             e.preventDefault();
             document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
-        });
-
-        document.querySelector('a[href="#contact"]').addEventListener('click', (e) => {
-            e.preventDefault();
-            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
         });
 
         // 3. إضافة المنتجات للسلة
