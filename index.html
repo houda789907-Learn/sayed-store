@@ -1,13 +1,14 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سيد ستور - أحدث صيحات الموضة</title>
+    <title>متجر الملابس الأنيقة</title>
     <style>
-        /* تصميم بسيط وأنيق للموقع */
+        /* تنسيقات بسيطة وسريعة للموقع */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f9f9f9;
@@ -19,156 +20,86 @@
             padding: 20px;
             text-align: center;
         }
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
-        nav {
-            background-color: #222;
-            text-align: center;
-            padding: 10px 0;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 1.1rem;
-        }
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
-            height: 300px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
-        }
-        .hero h2 {
-            font-size: 2rem;
-        }
         .container {
             max-width: 1200px;
             margin: 30px auto;
-            padding: 0 20px;
-        }
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            padding: 20px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
         }
         .product-card {
-            background: white;
+            background: #fff;
+            border: 1px solid #ddd;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            overflow: hidden;
+            width: 300px;
+            margin: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             text-align: center;
-            transition: transform 0.3s;
+            overflow: hidden;
         }
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
-        .product-image {
+        .product-card img {
             width: 100%;
-            height: 300px;
+            height: 250px;
             object-fit: cover;
         }
         .product-info {
             padding: 15px;
         }
-        .product-title {
-            font-size: 1.2rem;
-            margin: 10px 0;
-        }
-        .product-price {
-            color: #e67e22;
+        .price {
+            color: #e44d26;
             font-weight: bold;
-            font-size: 1.1rem;
-            margin-bottom: 15px;
+            font-size: 1.2em;
         }
-        .btn-buy {
-            background-color: #27ae60;
-            color: white;
-            border: none;
+        .btn {
+            background-color: #111;
+            color: #fff;
             padding: 10px 20px;
+            border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 1rem;
-            width: 100%;
+            margin-top: 10px;
         }
-        .btn-buy:hover {
-            background-color: #219150;
-        }
-        footer {
-            background-color: #111;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            margin-top: 40px;
+        .btn:hover {
+            background-color: #444;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>سيد ستور - Sayed Store</h1>
-        <p>عنوان الأناقة والجودة</p>
+        <h1>متجر الملابس الحديثة 👕👗</h1>
+        <p>أحدث الصيحات بأفضل الأسعار</p>
     </header>
 
-    <nav>
-        <a href="#">الرئيسية</a>
-        <a href="#">ملابس رجالي</a>
-        <a href="#">ملابس حريمي</a>
-        <a href="#">تواصل معنا</a>
-    </nav>
-
-    <div class="hero">
-        <h2>تسوّق أفضل صيحات الموضة العالمية الآن!</h2>
-    </div>
-
     <div class="container">
-        <h2 style="text-align: center; margin-bottom: 30px;">منتجاتنا المميزة</h2>
-        
-        <div class="products-grid">
-            <!-- المنتج الأول -->
-            <div class="product-card">
-                <img class="product-image" src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=500&q=80" alt="تيشرت كاجوال">
-                <div class="product-info">
-                    <h3 class="product-title">تيشرت كاجوال قطن</h3>
-                    <p class="product-price">250 جنيه</p>
-                    <button class="btn-buy" onclick="buyProduct('تيشرت كاجوال قطن')">شراء الآن</button>
-                </div>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=500" alt="تيشيرت كلاسيك">
+            <div class="product-info">
+                <h3>تيشيرت كلاسيك قطن</h3>
+                <p class="price">150 جنيه</p>
+                <button class="btn">إضافة للسلة</button>
             </div>
+        </div>
 
-            <!-- المنتج الثاني -->
-            <div class="product-card">
-                <img class="product-image" src="https://images.unsplash.com/photo-1544441893-675973e31985?auto=format&fit=crop&w=500&q=80" alt="طقم شتوي أنيق">
-                <div class="product-info">
-                    <h3 class="product-title">طقم شتوي أنيق</h3>
-                    <p class="product-price">750 جنيه</p>
-                    <button class="btn-buy" onclick="buyProduct('طقم شتوي أنيق')">شراء الآن</button>
-                </div>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=500" alt="قميص كاجوال">
+            <div class="product-info">
+                <h3>قميص كاجوال أنيق</h3>
+                <p class="price">280 جنيه</p>
+                <button class="btn">إضافة للسلة</button>
             </div>
+        </div>
 
-            <!-- المنتج الثالث -->
-            <div class="product-card">
-                <img class="product-image" src="https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&w=500&q=80" alt="جاكيت كلاسيك">
-                <div class="product-info">
-                    <h3 class="product-title">جاكيت خريفي كلاسيك</h3>
-                    <p class="product-price">520 جنيه</p>
-                    <button class="btn-buy" onclick="buyProduct('جاكيت خريفي كلاسيك')">شراء الآن</button>
-                </div>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=500" alt="بنطلون جينز">
+            <div class="product-info">
+                <h3>بنطلون جينز عصري</h3>
+                <p class="price">350 جنيه</p>
+                <button class="btn">إضافة للسلة</button>
             </div>
         </div>
     </div>
 
-    <footer>
-        <p>حقوق النشر © 2026 محفوظة لـ سيد ستور.</p>
-    </footer>
-
-    <script>
-        function buyProduct(productName) {
-            alert("شكراً لاختيارك سيد ستور! لقد قمت بطلب: " + productName + ". سنتواصل معك قريباً.");
-        }
-    </script>
 </body>
 </html>
