@@ -409,6 +409,95 @@
             display: block;
         }
 
+        /* تنسيق قسم التواصل والاستفسار */
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto 80px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .contact-card {
+            background-color: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+        }
+
+        .contact-card i {
+            font-size: 40px;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .contact-card h4 {
+            font-size: 20px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .contact-card p {
+            color: #64748b;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .contact-link {
+            display: inline-block;
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            border-bottom: 2px dashed var(--accent-color);
+            padding-bottom: 2px;
+        }
+
+        .contact-link:hover {
+            color: var(--accent-color);
+        }
+
+        /* تنسيق زر الواتساب العائم */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 1400;
+        }
+
+        .whatsapp-float i {
+            font-size: 24px;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128c7e;
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(18, 140, 126, 0.5);
+        }
+
+        @media (max-width: 480px) {
+            .whatsapp-float span {
+                display: none;
+            }
+            .whatsapp-float {
+                padding: 15px;
+                border-radius: 50%;
+            }
+        }
+
         /* تذييل الصفحة (Footer) */
         footer {
             background-color: var(--primary-color);
@@ -438,7 +527,7 @@
 </head>
 <body>
 
-    <!-- خلفية السلة -->
+    <!-- خلفية السلة الضبابية -->
     <div class="cart-overlay" id="cartOverlay"></div>
 
     <!-- شريط التنقل العلوي -->
@@ -449,6 +538,7 @@
             <li><a href="#">قمصان</a></li>
             <li><a href="#">تيشيرتات</a></li>
             <li><a href="#">بليزرات وبدل</a></li>
+            <li><a href="#contact">تواصل معنا</a></li>
         </ul>
         <div class="nav-icons">
             <i class="fa-solid fa-magnifying-glass"></i>
@@ -473,7 +563,6 @@
             <i class="fa-solid fa-xmark close-cart" id="closeCart"></i>
         </div>
         <div class="cart-body" id="cartBody">
-            <!-- المنتجات المضافة ستظهر هنا عبر الجافاسكريبت -->
             <p style="text-align: center; color: #64748b; margin-top: 20px;" id="emptyCartMsg">السلة فارغة حالياً</p>
         </div>
         <div class="cart-footer">
@@ -485,7 +574,7 @@
         </div>
     </div>
 
-    <!-- عنوان القسم -->
+    <!-- عنوان قسم المنتجات -->
     <div class="section-title" id="products">
         <h3>أحدث وصول في المتجر</h3>
     </div>
@@ -493,7 +582,7 @@
     <!-- شبكة المنتجات -->
     <div class="products-container">
         
-        <!-- منتج 1: قميص رجالي كلاسيكي -->
+        <!-- منتج 1 -->
         <div class="product-card" data-id="1">
             <div class="product-img-wrapper">
                 <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600" alt="قميص كلاسيك">
@@ -506,7 +595,7 @@
             </div>
         </div>
 
-        <!-- منتج 2: بدلة كلاسيكية أنيقة -->
+        <!-- منتج 2 -->
         <div class="product-card" data-id="2">
             <div class="product-img-wrapper">
                 <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?w=600" alt="بدلة رجالية">
@@ -519,7 +608,7 @@
             </div>
         </div>
 
-        <!-- منتج 3: تيشيرت صيفي راقي -->
+        <!-- منتج 3 -->
         <div class="product-card" data-id="3">
             <div class="product-img-wrapper">
                 <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600" alt="تيشيرت رجالي">
@@ -534,6 +623,27 @@
 
     </div>
 
+    <!-- قسم الاستفسار والتواصل الجديد -->
+    <div class="section-title" id="contact">
+        <h3>التواصل والاستفسارات</h3>
+    </div>
+
+    <div class="contact-container">
+        <div class="contact-card">
+            <i class="fa-solid fa-phone-volume"></i>
+            <h4>اتصل بنا مباشرة</h4>
+            <p>يسعدنا استقبال مكالماتكم للاستفسار والطلب</p>
+            <a href="tel:+201273799978" class="contact-link">01273799978</a>
+        </div>
+
+        <div class="contact-card">
+            <i class="fa-solid fa-clock"></i>
+            <h4>مواعيد العمل</h4>
+            <p>نحن جاهزون لخدمتكم طوال أيام الأسبوع</p>
+            <span>من 10:00 صباحاً وحتى 11:00 مساءً</span>
+        </div>
+    </div>
+
     <!-- فوتر الموقع -->
     <footer>
         <p>جميع الحقوق محفوظة لـ SAYED STORE © 2026</p>
@@ -544,9 +654,14 @@
         </div>
     </footer>
 
-    <!-- كود الجافا سكريبت لتشغيل السلة -->
+    <!-- زر الواتساب العائم المربوط برقمك مباشرة -->
+    <a href="https://wa.me/201273799978" class="whatsapp-float" target="_blank" title="تواصل معنا عبر واتساب">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span>استفسر الآن</span>
+    </a>
+
+    <!-- كود الجافا سكريبت لتشغيل السلة والنزول السلس -->
     <script>
-        // العناصر الأساسية من الصفحة
         const cartIcon = document.getElementById('cartIcon');
         const cartSidebar = document.getElementById('cartSidebar');
         const closeCart = document.getElementById('closeCart');
@@ -558,7 +673,6 @@
         const emptyCartMsg = document.getElementById('emptyCartMsg');
         const shopNowBtn = document.getElementById('shopNowBtn');
 
-        // مصفوفة لتخزين المنتجات المضافة في السلة
         let cartItems = [];
 
         // 1. فتح وإغلاق السلة
@@ -575,10 +689,15 @@
         closeCart.addEventListener('click', closeCartFunc);
         cartOverlay.addEventListener('click', closeCartFunc);
 
-        // 2. النزول السلس عند ضغط زر تسوق الآن
+        // 2. النزول السلس عند ضغط الأزرار والروابط الداخلية
         shopNowBtn.addEventListener('click', (e) => {
             e.preventDefault();
             document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        document.querySelector('a[href="#contact"]').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
         });
 
         // 3. إضافة المنتجات للسلة
@@ -590,7 +709,6 @@
                 const price = parseInt(productCard.querySelector('.product-price').getAttribute('data-price'));
                 const img = productCard.querySelector('img').src;
 
-                // التحقق إذا كان المنتج مضافاً بالفعل
                 const existingItem = cartItems.find(item => item.id === id);
 
                 if (existingItem) {
@@ -600,7 +718,6 @@
                 }
 
                 updateCartUI();
-                // فتح السلة تلقائياً لرؤية المنتج المضاف
                 cartSidebar.classList.add('active');
                 cartOverlay.classList.add('active');
             });
@@ -608,7 +725,6 @@
 
         // 4. تحديث واجهة السلة (UI)
         function updateCartUI() {
-            // مسح المحتوى الحالي
             cartBody.innerHTML = '';
 
             if (cartItems.length === 0) {
@@ -647,12 +763,6 @@
             cartItems = cartItems.filter(item => item.id !== id);
             updateCartUI();
         };
-    </script>  
-<!-- زر الواتساب العائم للاستفسار السريع -->
-<a href="https://wa.me/201234567890" class="whatsapp-float" target="_blank" title="تواصل معنا عبر واتساب">
-    <i class="fa-brands fa-whatsapp"></i>
-    <span>استفسر الآن</span>
-</a>
-    
+    </script>
 </body>
 </html>
