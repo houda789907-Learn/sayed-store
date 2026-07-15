@@ -4,102 +4,337 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>متجر الملابس الأنيقة</title>
+    <title>VOGUE - متجر الملابس العصري</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        /* تنسيقات بسيطة وسريعة للموقع */
-        body {
-            font-family: Arial, sans-serif;
+        /* إعدادات عامة */
+        :root {
+            --primary-color: #111111;
+            --accent-color: #cda45e;
+            --bg-color: #fcfcfc;
+            --text-color: #2b2b2b;
+            --light-gray: #f4f4f4;
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
+            font-family: 'Tajawal', sans-serif;
+            transition: all 0.3s ease;
         }
-        header {
-            background-color: #111;
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        /* شريط التنقل (Navbar) */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .nav-icons i:hover {
+            color: var(--accent-color);
+        }
+
+        /* القسم الرئيسي للموقع (Hero Section) */
+        .hero {
+            height: 70vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1600') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
             color: #fff;
             padding: 20px;
-            text-align: center;
         }
-        .container {
+
+        .hero h2 {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+
+        .hero-btn {
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 12px 35px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 50px;
+            font-size: 18px;
+        }
+
+        .hero-btn:hover {
+            background-color: #fff;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        /* عنوان القسم */
+        .section-title {
+            text-align: center;
+            margin: 60px 0 40px;
+        }
+
+        .section-title h3 {
+            font-size: 32px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        /* شبكة المنتجات */
+        .products-container {
             max-width: 1200px;
-            margin: 30px auto;
-            padding: 20px;
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
+            margin: 0 auto 80px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
         }
+
         .product-card {
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            width: 300px;
-            margin: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            text-align: center;
+            background-color: #fff;
+            border-radius: 12px;
             overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            position: relative;
         }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+        }
+
+        .product-img-wrapper {
+            position: relative;
+            overflow: hidden;
+            height: 350px;
+        }
+
         .product-card img {
             width: 100%;
-            height: 250px;
+            height: 100%;
             object-fit: cover;
         }
-        .product-info {
-            padding: 15px;
-        }
-        .price {
-            color: #e44d26;
-            font-weight: bold;
-            font-size: 1.2em;
-        }
-        .btn {
-            background-color: #111;
+
+        /* زر الإضافة السريع يظهر عند الوقوف على المنتج */
+        .quick-add {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--primary-color);
             color: #fff;
-            padding: 10px 20px;
+            padding: 10px 25px;
             border: none;
-            border-radius: 5px;
+            border-radius: 25px;
             cursor: pointer;
-            margin-top: 10px;
+            width: 80%;
+            font-weight: bold;
+            opacity: 0;
         }
-        .btn:hover {
-            background-color: #444;
+
+        .product-card:hover .quick-add {
+            bottom: 20px;
+            opacity: 1;
+        }
+
+        .quick-add:hover {
+            background-color: var(--accent-color);
+        }
+
+        .product-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .product-category {
+            font-size: 13px;
+            color: #888;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .product-title {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .product-price {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        /* تذييل الصفحة (Footer) */
+        footer {
+            background-color: var(--primary-color);
+            color: #ccc;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 14px;
+        }
+
+        footer p {
+            margin-bottom: 15px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-color);
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>متجر الملابس الحديثة 👕👗</h1>
-        <p>أحدث الصيحات بأفضل الأسعار</p>
+    <nav>
+        <a href="#" class="logo">VOGUE<span>.</span></a>
+        <ul class="nav-links">
+            <li><a href="#">الرئيسية</a></li>
+            <li><a href="#">رجالي</a></li>
+            <li><a href="#">حريمي</a></li>
+            <li><a href="#">مجموعتنا</a></li>
+        </ul>
+        <div class="nav-icons">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-bag-shopping"></i>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h2>تألق بأسلوبك الفريد</h2>
+        <p>اكتشف تشكيلة صيف 2026 الحصرية والمميزة الآن</p>
+        <a href="#" class="hero-btn">تسوق الآن</a>
     </header>
 
-    <div class="container">
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=500" alt="تيشيرت كلاسيك">
-            <div class="product-info">
-                <h3>تيشيرت كلاسيك قطن</h3>
-                <p class="price">150 جنيه</p>
-                <button class="btn">إضافة للسلة</button>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=500" alt="قميص كاجوال">
-            <div class="product-info">
-                <h3>قميص كاجوال أنيق</h3>
-                <p class="price">280 جنيه</p>
-                <button class="btn">إضافة للسلة</button>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=500" alt="بنطلون جينز">
-            <div class="product-info">
-                <h3>بنطلون جينز عصري</h3>
-                <p class="price">350 جنيه</p>
-                <button class="btn">إضافة للسلة</button>
-            </div>
-        </div>
+    <div class="section-title">
+        <h3>أحدث التصاميم المضافة</h3>
     </div>
+
+    <div class="products-container">
+        
+        <div class="product-card">
+            <div class="product-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600" alt="فستان صيفي">
+                <button class="quick-add">إضافة سريعة <i class="fa-solid fa-plus"></i></button>
+            </div>
+            <div class="product-info">
+                <p class="product-category">ملابس نسائية</p>
+                <h4 class="product-title">فستان صيفي أصفر كلاسيكي</h4>
+                <p class="product-price">450 ج.م</p>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?w=600" alt="بدلة كاجوال">
+                <button class="quick-add">إضافة سريعة <i class="fa-solid fa-plus"></i></button>
+            </div>
+            <div class="product-info">
+                <p class="product-category">ملابس رجالية</p>
+                <h4 class="product-title">جاكيت كاجوال أنيق - بيج</h4>
+                <p class="product-price">890 ج.م</p>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1485968579580-b6d095142e6e?w=600" alt="جاكيت كلاسيك">
+                <button class="quick-add">إضافة سريعة <i class="fa-solid fa-plus"></i></button>
+            </div>
+            <div class="product-info">
+                <p class="product-category">ملابس شتوية</p>
+                <h4 class="product-title">سترة صوف كلاسيكية</h4>
+                <p class="product-price">620 ج.م</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>جميع الحقوق محفوظة لمتجر VOGUE © 2026</p>
+        <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+    </footer>
 
 </body>
 </html>
