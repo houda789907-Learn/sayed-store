@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>سيد ستور | SAYED STORE - للأناقة الرجالية</title>
+    
+    <!-- إعدادات تحويل الموقع إلى تطبيق موبايل (PWA) -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0f172a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="icon.png">
+
     <!-- استيراد خط Tajawal المتميز وأيقونات FontAwesome -->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -906,7 +914,6 @@
 
         <!-- التغذية المباشرة لعرض الآراء الجديدة -->
         <div class="reviews-feed" id="reviewsFeed">
-            <!-- رأي افتراضي أول تفاعلي يظهر مسبقاً -->
             <div class="user-review-card">
                 <div class="user-review-header">
                     <span class="user-review-name">أحمد متولي</span>
@@ -954,7 +961,7 @@
         <span>استفسر الآن</span>
     </a>
 
-    <!-- كود الجافا سكريبت لتشغيل السلة والمقاسات والواتساب المباشر وإضافة الآراء -->
+    <!-- كود الجافا سكريبت لتشغيل السلة، المقاسات، والآراء، وتشغيل ميزة تطبيق الهاتف PWA -->
     <script>
         const cartIcon = document.getElementById('cartIcon');
         const cartSidebar = document.getElementById('cartSidebar');
@@ -972,6 +979,15 @@
 
         let cartItems = [];
 
+        // تشغيل ميزة الـ PWA وتثبيت التطبيق تلقائياً
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                .then(reg => console.log('تم تفعيل نظام تطبيق الهاتف بنجاح!', reg))
+                .catch(err => console.log('حدث خطأ في النظام:', err));
+            });
+        }
+
         // 1. فتح وإغلاق السلة
         cartIcon.addEventListener('click', () => {
             cartSidebar.classList.add('active');
@@ -986,13 +1002,12 @@
         closeCart.addEventListener('click', closeCartFunc);
         cartOverlay.addEventListener('click', closeCartFunc);
 
-        // 2. النزول السلس عند ضغط زر تسوق المجموعة الآن ليفتح قسم التيشيرتات الصيفية مباشرة
+        // 2. النزول السلس لقسم التيشيرتات
         shopNowBtn.addEventListener('click', (e) => {
             e.preventDefault();
             document.getElementById('summer-tshirts').scrollIntoView({ behavior: 'smooth' });
         });
 
-        // النزول السلس لروابط الناف بار الداخلية
         document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1000,7 +1015,7 @@
             });
         });
 
-        // 3. إضافة المنتجات للسلة مع المقاس المختار
+        // 3. إضافة المنتجات
         quickAddBtns.forEach(button => {
             button.addEventListener('click', (e) => {
                 const productCard = e.target.closest('.product-card');
@@ -1025,7 +1040,7 @@
             });
         });
 
-        // 4. تحديث واجهة السلة (UI)
+        // 4. تحديث واجهة السلة
         function updateCartUI() {
             cartBody.innerHTML = '';
 
@@ -1061,13 +1076,12 @@
             cartTotalSum.innerText = total.toLocaleString() + ' ج.م';
         }
 
-        // 5. حذف منتج من السلة
         window.removeItem = function(itemKey) {
             cartItems = cartItems.filter(item => item.itemKey !== itemKey);
             updateCartUI();
         };
 
-        // 6. تجميع الطلب وإرساله تفصيلياً عبر الواتساب برقمك مباشرة
+        // 5. إرسال الطلب للواتساب
         checkoutBtn.addEventListener('click', () => {
             if (cartItems.length === 0) {
                 alert('سلتك فارغة، من فضلك أضف بعض المنتجات أولاً!');
@@ -1094,21 +1108,18 @@
             window.open(whatsappUrl, '_blank');
         });
 
-        // 7. جافا سكريبت لإضافة الآراء تفاعلياً في نفس الصفحة
+        // 6. إضافة الآراء
         addReviewForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            
             const name = document.getElementById('reviewerName').value;
             const rating = document.getElementById('reviewRating').value;
             const text = document.getElementById('reviewText').value;
 
             let starString = '';
-            for(let i=0; i<rating; i++) {
-                starString += '⭐';
-            }
+            for(let i=0; i<rating; i++) { starString += '⭐'; }
 
             const newReviewHTML = `
-                <div class="user-review-card" style="animation: fadeIn 0.5s ease;">
+                <div class="user-review-card">
                     <div class="user-review-header">
                         <span class="user-review-name">${name}</span>
                         <span class="user-review-stars">${starString}</span>
@@ -1116,11 +1127,7 @@
                     <p class="user-review-text">${text}</p>
                 </div>
             `;
-
-            // إضافة الرأي الجديد في أعلى القائمة
             reviewsFeed.insertAdjacentHTML('afterbegin', newReviewHTML);
-
-            // تصفير الحقول بعد الإرسال بنجاح
             addReviewForm.reset();
         });
     </script>
