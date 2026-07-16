@@ -1012,35 +1012,5 @@
         });
     </script>
 </body>
-// ميزة السحب لليسار لإغلاق السلة
-const cartSidebar = document.querySelector('.cart-sidebar'); // تأكد أن هذا هو اسم كلاس السلة عندك
-
-let touchStartX = 0;
-let touchEndX = 0;
-
-// تسجيل مكان بداية لمس الشاشة
-cartSidebar.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-}, { passive: true });
-
-// تسجيل مكان نهاية اللمس وحساب المسافة
-cartSidebar.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-}, { passive: true });
-
-// التحقق من اتجاه السحب
-function handleSwipe() {
-    // إذا كانت المسافة المقطوعة لليسار أكبر من 50 بكسل
-    if (touchStartX - touchEndX > 50) {
-        // قم بإزالة كلاس الظهور (تأكد من الاسم المستخدم عندك مثل active أو open)
-        cartSidebar.classList.remove('active'); 
-        
-        // إذا كان عندك طبقة سوداء خلف السلة (Overlay) قم بإخفائها هنا أيضاً
-        const overlay = document.querySelector('.cart-overlay');
-        if(overlay) overlay.classList.remove('active');
-    }
-}
-    
 </html>
 
