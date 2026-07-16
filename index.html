@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>سيد ستور | SAYED STORE - للأناقة الرجالية</title>
     
-    <!-- إعدادات تحويل الموقع إلى تطبيق موبايل (PWA) -->
+    <!-- إعدادات تحويل الموقع إلى تطبيق موبايل (PWA) المحدثة -->
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0f172a">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -728,7 +728,7 @@
         <button class="hero-btn" id="shopNowBtn">تسوق المجموعة الآن</button>
     </header>
 
-    <!-- شريط مميزات المتجر الفاخر بعد التعديل -->
+    <!-- شريط مميزات المتجر -->
     <div class="features-bar">
         <div class="feature-item">
             <i class="fa-solid fa-truck-fast"></i>
@@ -824,7 +824,6 @@
         </div>
     </div>
 
-
     <!-- عنوان قسم باقي المنتجات -->
     <div class="section-title" id="products">
         <h3>كل المنتجات الكلاسيكية والكاجوال</h3>
@@ -885,13 +884,12 @@
         </div>
     </div>
 
-    <!-- ================= قسم شاركنا رأيك (آراء تفاعلية) ================= -->
+    <!-- ================= قسم شاركنا رأيك ================= -->
     <div class="section-title">
         <h3>آراء زبائننا وشاركونا تجربتكم</h3>
     </div>
     
     <div class="reviews-section">
-        <!-- صندوق كتابة الرأي -->
         <div class="review-form">
             <h4>أضف رأيك في منتجاتنا:</h4>
             <form id="addReviewForm">
@@ -912,7 +910,6 @@
             </form>
         </div>
 
-        <!-- التغذية المباشرة لعرض الآراء الجديدة -->
         <div class="reviews-feed" id="reviewsFeed">
             <div class="user-review-card">
                 <div class="user-review-header">
@@ -961,7 +958,7 @@
         <span>استفسر الآن</span>
     </a>
 
-    <!-- كود الجافا سكريبت لتشغيل السلة، المقاسات، والآراء، وتشغيل ميزة تطبيق الهاتف PWA -->
+    <!-- كود الجافا سكريبت لتشغيل السلة والتطبيق المحدث -->
     <script>
         const cartIcon = document.getElementById('cartIcon');
         const cartSidebar = document.getElementById('cartSidebar');
@@ -979,11 +976,18 @@
 
         let cartItems = [];
 
-        // تشغيل ميزة الـ PWA وتثبيت التطبيق تلقائياً
+        // تشغيل ميزة الـ PWA الفوري مع تخطي الـ Cache
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('sw.js')
-                .then(reg => console.log('تم تفعيل نظام تطبيق الهاتف بنجاح!', reg))
+                // استخدام السلسلة المحدثة ?v=2 لإجبار الهاتف على تشغيل التطبيق في التو واللحظة
+                navigator.serviceWorker.register('sw.js?v=2')
+                .then(reg => {
+                    console.log('تم تفعيل نظام تطبيق الهاتف الفوري بنجاح!', reg);
+                    // تحديث فوري إذا كان هناك سيرفس وركر جديد منتظر
+                    if (reg.waiting) {
+                        reg.waiting.postMessage({ type: 'SKIP_WAITING' });
+                    }
+                })
                 .catch(err => console.log('حدث خطأ في النظام:', err));
             });
         }
