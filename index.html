@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>سيد ستور | SAYED STORE - للأناقة والملابس الرياضية</title>
     
+    <!-- إعدادات تحويل الموقع إلى تطبيق موبايل (PWA) -->
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0f172a">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link class="apple-touch-icon" href="icon.png">
 
+    <!-- font-awesome & Tajawal Font -->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -28,7 +30,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Tajawal', sans-serif;
-            transition: transform 0.1s linear, background-color 0.3s, color 0.3s;
+            transition: all 0.3s ease;
         }
 
         body {
@@ -128,6 +130,13 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
+        .hero p {
+            font-size: 22px;
+            font-weight: 300;
+            margin-bottom: 30px;
+            color: #e2e8f0;
+        }
+
         .hero-btn {
             background-color: var(--accent-color);
             color: #fff;
@@ -139,6 +148,12 @@
             box-shadow: 0 4px 15px rgba(184, 144, 71, 0.4);
             cursor: pointer;
             border: none;
+        }
+
+        .hero-btn:hover {
+            background-color: #fff;
+            color: var(--primary-color);
+            transform: translateY(-3px);
         }
 
         .features-bar {
@@ -155,6 +170,16 @@
             font-size: 28px;
             color: var(--accent-color);
             margin-bottom: 10px;
+        }
+
+        .feature-item h4 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .feature-item p {
+            font-size: 13px;
+            color: #94a3b8;
         }
 
         .section-title {
@@ -201,6 +226,11 @@
             flex-direction: column;
         }
 
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(15, 23, 42, 0.1);
+        }
+
         .product-img-wrapper {
             position: relative;
             overflow: hidden;
@@ -221,6 +251,14 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+        }
+
+        .product-category {
+            font-size: 12px;
+            color: #64748b;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            font-weight: bold;
         }
 
         .product-title {
@@ -245,10 +283,17 @@
             gap: 10px;
         }
 
+        .size-selector label {
+            font-size: 13px;
+            color: #64748b;
+        }
+
         .size-selector select {
             padding: 5px 10px;
             border: 1px solid #cbd5e1;
             border-radius: 4px;
+            background-color: #fff;
+            outline: none;
         }
 
         .quick-add {
@@ -262,11 +307,14 @@
             font-weight: bold;
         }
 
-        /* السلة بنظام تحريك Transform */
+        .quick-add:hover {
+            background-color: var(--accent-color);
+        }
+
         .cart-sidebar {
             position: fixed;
             top: 0;
-            left: 0;
+            left: -400px;
             width: 380px;
             height: 100vh;
             background-color: #fff;
@@ -274,13 +322,11 @@
             z-index: 2000;
             display: flex;
             flex-direction: column;
-            transform: translateX(-105%);
-            transition: transform 0.3s ease-out;
-            touch-action: translateY;
+            transition: left 0.4s ease;
         }
 
         .cart-sidebar.active {
-            transform: translateX(0);
+            left: 0;
         }
 
         .cart-header {
@@ -323,6 +369,25 @@
             flex: 1;
         }
 
+        .cart-item-title {
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .cart-item-size {
+            font-size: 12px;
+            color: #64748b;
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+
+        .cart-item-price {
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
         .remove-item {
             color: #ef4444;
             cursor: pointer;
@@ -354,6 +419,7 @@
             border-radius: 4px;
             border: none;
             cursor: pointer;
+            font-size: 16px;
         }
 
         .cart-overlay {
@@ -420,7 +486,16 @@
             border-right: 4px solid var(--accent-color);
         }
 
-        /* تحسين وتنسيق كروت التواصل والاستفسارات */
+        .user-review-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .user-review-stars {
+            color: #fbbf24;
+        }
+
         .contact-container {
             max-width: 1200px;
             margin: 0 auto 80px;
@@ -436,26 +511,12 @@
             border-radius: 8px;
             padding: 30px 20px;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.02);
         }
 
         .contact-card i {
-            font-size: 36px;
-            margin-bottom: 15px;
-        }
-
-        .contact-card .fa-phone-volume {
+            font-size: 40px;
             color: var(--accent-color);
-        }
-
-        .contact-card .fa-facebook {
-            color: #1877f2;
-        }
-
-        .contact-card h4 {
-            font-size: 18px;
-            color: var(--primary-color);
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .contact-link {
@@ -464,11 +525,7 @@
             font-weight: bold;
             color: var(--primary-color);
             text-decoration: none;
-            margin-top: 5px;
-        }
-        
-        .contact-link:hover {
-            color: var(--accent-color);
+            border-bottom: 2px dashed var(--accent-color);
         }
 
         .whatsapp-float {
@@ -492,6 +549,13 @@
             color: #94a3b8;
             text-align: center;
             padding: 40px 20px;
+            border-top: 3px solid var(--accent-color);
+        }
+
+        .social-icons a {
+            color: #94a3b8;
+            margin: 0 10px;
+            font-size: 20px;
         }
 
         @media (max-width: 992px) {
@@ -502,8 +566,10 @@
 
         @media (max-width: 600px) {
             .hero h2 { font-size: 28px; }
-            .cart-sidebar { width: 100%; transform: translateX(-105%); } 
-            .cart-sidebar.active { transform: translateX(0); }
+            .products-container { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+            .product-img-wrapper { height: 320px; }
+            .cart-sidebar { width: 100%; left: -100%; }
+            .cart-sidebar.active { left: 0; }
             .whatsapp-float span { display: none; }
             .whatsapp-float { padding: 15px; border-radius: 50%; }
         }
@@ -531,7 +597,8 @@
 
     <header class="hero">
         <h2>أناقتك وشغفك الرياضي في مكان واحد</h2>
-        <button class="hero-btn" id="shopNowBtn">تسوق الآن</button>
+        <p>اكتشف تشكيلة تيشيرتات كرة القدم الحصرية لعام 2026 بسعر موحد 300 ج.م</p>
+        <button class="hero-btn" id="shopNowBtn">تسوق تشكيلة الكرة الآن</button>
     </header>
 
     <div class="features-bar">
@@ -569,13 +636,13 @@
         </div>
     </div>
 
-    <!-- تيشيرتات كرة القدم -->
+    <!-- ================= قسم تيشيرتات كرة القدم ================= -->
     <div class="section-title" id="football-jerseys">
         <h3>تيشيرتات كرة القدم الأكثر طلباً لعام 2026</h3>
     </div>
 
     <div class="products-container">
-        <!-- برشلونة -->
+        <!-- منتج 1: برشلونة -->
         <div class="product-card" data-id="201">
             <div class="product-img-wrapper">
                 <img src="t1.jpg" alt="تيشيرت برشلونة">
@@ -601,7 +668,7 @@
             </div>
         </div>
 
-        <!-- ليفربول -->
+        <!-- منتج 2: ليفربول -->
         <div class="product-card" data-id="202">
             <div class="product-img-wrapper">
                 <img src="t2.jpg" alt="تيشيرت ليفربول">
@@ -627,7 +694,7 @@
             </div>
         </div>
 
-        <!-- ريال مدريد -->
+        <!-- منتج 3: ريال مدريد -->
         <div class="product-card" data-id="203">
             <div class="product-img-wrapper">
                 <img src="t3.jpg" alt="تيشيرت ريال مدريد">
@@ -653,7 +720,7 @@
             </div>
         </div>
 
-        <!-- فرنسا -->
+        <!-- منتج 4: فرنسا -->
         <div class="product-card" data-id="204">
             <div class="product-img-wrapper">
                 <img src="t4.jpg" alt="تيشيرت منتخب فرنسا">
@@ -680,12 +747,37 @@
         </div>
     </div>
 
-    <!-- كاجوال صيفي -->
+    <!-- ================= أقسام المنتجات الكاجوال الأخرى ================= -->
     <div class="section-title" id="summer-tshirts">
         <h3>تيشيرتات الموضة الكاجوال الصيفية</h3>
     </div>
 
     <div class="products-container">
+        <div class="product-card" data-id="101">
+            <div class="product-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600" alt="تيشيرت اوفر سايز">
+            </div>
+            <div class="product-info">
+                <div>
+                    <p class="product-category">صيف 2026</p>
+                    <h4 class="product-title">تيشيرت أوفر سايز تريندي - أسود</h4>
+                    <p class="product-price" data-price="290">290 ج.م</p>
+                </div>
+                <div>
+                    <div class="size-selector">
+                        <label>المقاس:</label>
+                        <select class="product-size">
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                            <option value="XXL">XXL</option>
+                        </select>
+                    </div>
+                    <button class="quick-add-btn quick-add">إضافة للسلة <i class="fa-solid fa-plus"></i></button>
+                </div>
+            </div>
+        </div>
+
         <div class="product-card" data-id="102">
             <div class="product-img-wrapper">
                 <img src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=600" alt="تيشيرت بيزك">
@@ -712,7 +804,7 @@
         </div>
     </div>
 
-    <!-- التقييمات -->
+    <!-- آراء الزبائن -->
     <div class="section-title">
         <h3>آراء زبائننا وشاركونا تجربتكم</h3>
     </div>
@@ -728,6 +820,7 @@
                     <select id="reviewRating" required>
                         <option value="5">⭐⭐⭐⭐⭐ (ممتاز جداً)</option>
                         <option value="4">⭐⭐⭐⭐ (جيد جداً)</option>
+                        <option value="3">⭐⭐⭐ (متوسط)</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -748,8 +841,8 @@
         </div>
     </div>
 
-    <!-- ================= قسم التواصل والاستفسارات بعد التعديل الشامل ================= -->
- <div class="section-title" id="contact">
+    <!-- التواصل والاستفسارات -->
+    <div class="section-title" id="contact">
         <h3>التواصل والاستفسارات</h3>
     </div>
 
@@ -782,7 +875,6 @@
         <span>استفسر الآن</span>
     </a>
 
-    <!-- الجافا سكريبت -->
     <script>
         const cartIcon = document.getElementById('cartIcon');
         const cartSidebar = document.getElementById('cartSidebar');
@@ -800,18 +892,23 @@
 
         let cartItems = [];
 
-        // فتح السلة
+        // تسجيل الـ Service Worker بطريقة بسيطة جداً وآمنة تمنع التهنيج
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                .then(reg => console.log('تم تفعيل النظام بنجاح.'))
+                .catch(err => console.log('خطأ في النظام:', err));
+            });
+        }
+
         cartIcon.addEventListener('click', () => {
             cartSidebar.classList.add('active');
             cartOverlay.classList.add('active');
-            cartSidebar.style.transform = "translateX(0)"; 
         });
 
-        // إغلاق السلة
         function closeCartFunc() {
             cartSidebar.classList.remove('active');
             cartOverlay.classList.remove('active');
-            cartSidebar.style.transform = ""; 
         }
 
         closeCart.addEventListener('click', closeCartFunc);
@@ -822,43 +919,6 @@
             document.getElementById('football-jerseys').scrollIntoView({ behavior: 'smooth' });
         });
 
-        // ================= كود سحب السلة بالإصبع بالإعتماد على الـ Transform =================
-        let startX = 0;
-        let currentX = 0;
-        let isSwiping = false;
-
-        cartSidebar.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
-            isSwiping = true;
-            cartSidebar.style.transition = 'none';
-        }, { passive: true });
-
-        cartSidebar.addEventListener('touchmove', (e) => {
-            if (!isSwiping) return;
-            currentX = e.touches[0].clientX;
-            let diffX = currentX - startX;
-
-            if (diffX < 0) {
-                cartSidebar.style.transform = `translateX(${diffX}px)`;
-            }
-        }, { passive: true });
-
-        cartSidebar.addEventListener('touchend', (e) => {
-            if (!isSwiping) return;
-            isSwiping = false;
-            
-            cartSidebar.style.transition = 'transform 0.3s ease-out';
-            let diffX = currentX - startX;
-
-            if (diffX < -80) {
-                closeCartFunc();
-            } else {
-                cartSidebar.style.transform = "translateX(0)";
-            }
-        });
-        // =========================================================================
-
-        // إضافة المنتجات
         quickAddBtns.forEach(button => {
             button.addEventListener('click', (e) => {
                 const productCard = e.target.closest('.product-card');
@@ -880,12 +940,12 @@
                 updateCartUI();
                 cartSidebar.classList.add('active');
                 cartOverlay.classList.add('active');
-                cartSidebar.style.transform = "translateX(0)";
             });
         });
 
         function updateCartUI() {
             cartBody.innerHTML = '';
+
             if (cartItems.length === 0) {
                 cartBody.appendChild(emptyCartMsg);
                 cartBadge.innerText = '0';
@@ -925,18 +985,28 @@
 
         checkoutBtn.addEventListener('click', () => {
             if (cartItems.length === 0) {
-                alert('سلتك فارغة!');
+                alert('سلتك فارغة، من فضلك أضف بعض المنتجات أولاً!');
                 return;
             }
-            let message = "مرحباً سيد ستور، أريد طلب المنتجات التالية:\n\n";
+
+            let message = "مرحباً سيد ستور (SAYED STORE)، أريد طلب تيشرتات كرة القدم التالية:\n\n";
             let total = 0;
+
             cartItems.forEach((item, index) => {
                 const itemTotal = item.price * item.quantity;
                 total += itemTotal;
-                message += `${index + 1}. ${item.title} (مقاس: ${item.size}) × ${item.quantity} = ${itemTotal} ج.م\n`;
+                message += `${index + 1}. ${item.title}\n`;
+                message += `   - المقاس: ${item.size}\n`;
+                message += `   - الكمية: ${item.quantity}\n`;
+                message += `   - السعر: ${itemTotal} ج.م\n\n`;
             });
-            message += `\n💰 الإجمالي الكلي: ${total} ج.م`;
-            window.open(`https://wa.me/201273799978?text=${encodeURIComponent(message)}`, '_blank');
+
+            message += `-------------------------\n`;
+            message += `💰 الإجمالي الكلي: ${total} ج.م\n\n`;
+            message += `يرجى تأكيد الطلب وتوضيح تفاصيل الشحن والاسم.`;
+
+            const whatsappUrl = `https://wa.me/201273799978?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
         });
 
         addReviewForm.addEventListener('submit', (e) => {
@@ -944,20 +1014,21 @@
             const name = document.getElementById('reviewerName').value;
             const rating = document.getElementById('reviewRating').value;
             const text = document.getElementById('reviewText').value;
-            let stars = '⭐'.repeat(parseInt(rating));
+
+            let starString = '';
+            for(let i=0; i<rating; i++) { starString += '⭐'; }
 
             const newReviewHTML = `
                 <div class="user-review-card">
                     <div class="user-review-header">
                         <span class="user-review-name">${name}</span>
-                        <span class="user-review-stars">${stars}</span>
+                        <span class="user-review-stars">${starString}</span>
                     </div>
                     <p class="user-review-text">${text}</p>
                 </div>
             `;
             reviewsFeed.insertAdjacentHTML('afterbegin', newReviewHTML);
             addReviewForm.reset();
-            alert('تم نشر رأيك بنجاح!');
         });
     </script>
 </body>
