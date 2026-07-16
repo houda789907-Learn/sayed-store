@@ -262,7 +262,7 @@
             font-weight: bold;
         }
 
-        /* السلة بنظام تحريك Transform السلس */
+        /* السلة بنظام تحريك Transform */
         .cart-sidebar {
             position: fixed;
             top: 0;
@@ -420,6 +420,7 @@
             border-right: 4px solid var(--accent-color);
         }
 
+        /* تحسين وتنسيق كروت التواصل والاستفسارات */
         .contact-container {
             max-width: 1200px;
             margin: 0 auto 80px;
@@ -435,6 +436,26 @@
             border-radius: 8px;
             padding: 30px 20px;
             text-align: center;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.02);
+        }
+
+        .contact-card i {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .contact-card .fa-phone-volume {
+            color: var(--accent-color);
+        }
+
+        .contact-card .fa-facebook {
+            color: #1877f2;
+        }
+
+        .contact-card h4 {
+            font-size: 18px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
         }
 
         .contact-link {
@@ -443,6 +464,11 @@
             font-weight: bold;
             color: var(--primary-color);
             text-decoration: none;
+            margin-top: 5px;
+        }
+        
+        .contact-link:hover {
+            color: var(--accent-color);
         }
 
         .whatsapp-float {
@@ -543,13 +569,13 @@
         </div>
     </div>
 
-    <!-- ================= قسم تيشيرتات كرة القدم الفاخرة المرجعة كاملة ================= -->
+    <!-- تيشيرتات كرة القدم -->
     <div class="section-title" id="football-jerseys">
         <h3>تيشيرتات كرة القدم الأكثر طلباً لعام 2026</h3>
     </div>
 
     <div class="products-container">
-        <!-- منتج 1: برشلونة -->
+        <!-- برشلونة -->
         <div class="product-card" data-id="201">
             <div class="product-img-wrapper">
                 <img src="t1.jpg" alt="تيشيرت برشلونة">
@@ -575,7 +601,7 @@
             </div>
         </div>
 
-        <!-- منتج 2: ليفربول -->
+        <!-- ليفربول -->
         <div class="product-card" data-id="202">
             <div class="product-img-wrapper">
                 <img src="t2.jpg" alt="تيشيرت ليفربول">
@@ -601,7 +627,7 @@
             </div>
         </div>
 
-        <!-- منتج 3: ريال مدريد الفاخر -->
+        <!-- ريال مدريد -->
         <div class="product-card" data-id="203">
             <div class="product-img-wrapper">
                 <img src="t3.jpg" alt="تيشيرت ريال مدريد">
@@ -627,7 +653,7 @@
             </div>
         </div>
 
-        <!-- منتج 4: منتخب فرنسا الفاخر -->
+        <!-- فرنسا -->
         <div class="product-card" data-id="204">
             <div class="product-img-wrapper">
                 <img src="t4.jpg" alt="تيشيرت منتخب فرنسا">
@@ -722,15 +748,24 @@
         </div>
     </div>
 
+    <!-- ================= قسم التواصل والاستفسارات بعد التعديل الشامل ================= -->
     <div class="section-title" id="contact">
         <h3>التواصل والاستفسارات</h3>
     </div>
 
     <div class="contact-container">
+        <!-- كارت الهاتف الإحترافي -->
         <div class="contact-card">
             <i class="fa-solid fa-phone-volume"></i>
             <h4>اتصل بنا مباشرة</h4>
             <a href="tel:+201273799978" class="contact-link">01273799978</a>
+        </div>
+
+        <!-- كارت فيسبوك الجديد - يفتح صفحتك في علامة تبويب خارجية -->
+        <div class="contact-card">
+            <i class="fa-brands fa-facebook"></i>
+            <h4>تابعنا على فيسبوك</h4>
+            <a href="https://www.facebook.com/SAYEDSTORE" class="contact-link" target="_blank">صفحة SAYED STORE</a>
         </div>
     </div>
 
@@ -743,7 +778,7 @@
         <span>استفسر الآن</span>
     </a>
 
-    <!-- الجافا سكريبت الذكي لإغلاق السلة بالسحب الفعلي والسلس -->
+    <!-- الجافا سكريبت -->
     <script>
         const cartIcon = document.getElementById('cartIcon');
         const cartSidebar = document.getElementById('cartSidebar');
