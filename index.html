@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>سيد ستور | SAYED STORE - للأناقة والملابس الرياضية</title>
     
-    <!-- إعدادات تحويل الموقع إلى تطبيق موبايل (PWA) مع كاسر الكاش -->
-    <link rel="manifest" href="manifest.json?v=2026">
+    <!-- إعدادات تحويل الموقع إلى تطبيق موبايل (PWA) المحدثة -->
+    <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0f172a">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link class="apple-touch-icon" href="icon.png?v=2026">
+    <link class="apple-touch-icon" href="icon.png">
 
     <!-- font-awesome & Tajawal Font -->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700;900&display=swap" rel="stylesheet">
@@ -597,7 +597,8 @@
 
     <header class="hero">
         <h2>أناقتك وشغفك الرياضي في مكان واحد</h2>
-        <button class="hero-btn" id="shopNowBtn">تسوق الآن</button>
+        <p>اكتشف تشكيلة تيشيرتات كرة القدم الحصرية لعام 2026 بسعر موحد 300 ج.م</p>
+        <button class="hero-btn" id="shopNowBtn">تسوق تشكيلة الكرة الآن</button>
     </header>
 
     <div class="features-bar">
@@ -635,7 +636,7 @@
         </div>
     </div>
 
-    <!-- ================= قسم تيشيرتات كرة القدم الفاخرة المحدثة بكاسر الكاش الفوري ================= -->
+    <!-- ================= قسم تيشيرتات كرة القدم الفاخرة المضافة حديثاً ================= -->
     <div class="section-title" id="football-jerseys">
         <h3>تيشيرتات كرة القدم الأكثر طلباً لعام 2026</h3>
     </div>
@@ -644,7 +645,7 @@
         <!-- منتج 1: برشلونة -->
         <div class="product-card" data-id="201">
             <div class="product-img-wrapper">
-                <img src="t1.jpg?v=2026" alt="تيشيرت برشلونة">
+                <img src="t1.jpg" alt="تيشيرت برشلونة">
             </div>
             <div class="product-info">
                 <div>
@@ -670,7 +671,7 @@
         <!-- منتج 2: ليفربول -->
         <div class="product-card" data-id="202">
             <div class="product-img-wrapper">
-                <img src="t2.jpg?v=2026" alt="تيشيرت ليفربول">
+                <img src="t2.jpg" alt="تيشيرت ليفربول">
             </div>
             <div class="product-info">
                 <div>
@@ -696,7 +697,7 @@
         <!-- منتج 3: ريال مدريد -->
         <div class="product-card" data-id="203">
             <div class="product-img-wrapper">
-                <img src="t3.jpg?v=2026" alt="تيشيرت ريال مدريد">
+                <img src="t3.jpg" alt="تيشيرت ريال مدريد">
             </div>
             <div class="product-info">
                 <div>
@@ -722,7 +723,7 @@
         <!-- منتج 4: فرنسا -->
         <div class="product-card" data-id="204">
             <div class="product-img-wrapper">
-                <img src="t4.jpg?v=2026" alt="تيشيرت منتخب فرنسا">
+                <img src="t4.jpg" alt="تيشيرت منتخب فرنسا">
             </div>
             <div class="product-info">
                 <div>
@@ -874,7 +875,7 @@
         <span>استفسر الآن</span>
     </a>
 
-    <!-- كود الجافا سكريبت الذكي والجديد لإجبار المتصفح على التحديث الفوري وبدون كاش دائماً -->
+    <!-- كود الجافا سكريبت الذكي لتشغيل السلة والـ PWA الفوري -->
     <script>
         const cartIcon = document.getElementById('cartIcon');
         const cartSidebar = document.getElementById('cartSidebar');
@@ -892,32 +893,14 @@
 
         let cartItems = [];
 
-        // نظام التحديث الإجباري والفوري للتخلص من الكاش نهائياً للأبد
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                // توليد رقم عشوائي كقيمة فريدة لكسر كاش ملف الـ Service Worker نفسه في كل مرة
-                const cacheBuster = new Date().getTime();
-                navigator.serviceWorker.register('sw.js?v=' + cacheBuster)
+                navigator.serviceWorker.register('sw.js?v=2')
                 .then(reg => {
-                    console.log('تم تفعيل نظام حماية الكاش بنجاح!');
-                    
-                    // الاستماع للتحديثات البرمجية الجديدة فور رفعها على GitHub
-                    reg.onupdatefound = () => {
-                        const installingWorker = reg.installing;
-                        installingWorker.onstatechange = () => {
-                            if (installingWorker.state === 'installed') {
-                                if (navigator.serviceWorker.controller) {
-                                    console.log('تم اكتشاف تحديث جديد للمنتجات والصور! جاري التحديث التلقائي...');
-                                    // إجبار النظام على تفعيل الكود الجديد فوراً ومسح الكاش
-                                    installingWorker.postMessage({ type: 'SKIP_WAITING' });
-                                    // عمل إنعاش خفيف فوري للمتصفح ليظهر التعديل للزبون فجأة
-                                    setTimeout(() => {
-                                        window.location.reload(true);
-                                    }, 500);
-                                }
-                            }
-                        };
-                    };
+                    console.log('تم تفعيل نظام تطبيق الهاتف الفوري بنجاح!', reg);
+                    if (reg.waiting) {
+                        reg.waiting.postMessage({ type: 'SKIP_WAITING' });
+                    }
                 })
                 .catch(err => console.log('حدث خطأ في النظام:', err));
             });
