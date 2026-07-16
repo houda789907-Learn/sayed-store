@@ -311,6 +311,7 @@
             background-color: var(--accent-color);
         }
 
+        /* تعديل الأنيميشن للسلة لتدعم السحب السلس */
         .cart-sidebar {
             position: fixed;
             top: 0;
@@ -322,7 +323,8 @@
             z-index: 2000;
             display: flex;
             flex-direction: column;
-            transition: left 0.4s ease;
+            transition: left 0.3s ease-out;
+            touch-action: pan-y; /* يسمح بالسكول العمودي ويحجز السحب الأفقي للكود */
         }
 
         .cart-sidebar.active {
@@ -618,6 +620,7 @@
         </div>
     </div>
 
+    <!-- السلة المعدلة التي تدعم السحب -->
     <div class="cart-sidebar" id="cartSidebar">
         <div class="cart-header">
             <h3>سلة المشتريات</h3>
@@ -635,13 +638,13 @@
         </div>
     </div>
 
-    <!-- ================= قسم تيشيرتات كرة القدم الفاخرة المضافة حديثاً ================= -->
+    <!-- ================= قسم تيشيرتات كرة القدم ================= -->
     <div class="section-title" id="football-jerseys">
         <h3>تيشيرتات كرة القدم الأكثر طلباً لعام 2026</h3>
     </div>
 
     <div class="products-container">
-        <!-- منتج 1: برشلونة -->
+        <!-- منتج 1 -->
         <div class="product-card" data-id="201">
             <div class="product-img-wrapper">
                 <img src="t1.jpg" alt="تيشيرت برشلونة">
@@ -667,7 +670,7 @@
             </div>
         </div>
 
-        <!-- منتج 2: ليفربول -->
+        <!-- منتج 2 -->
         <div class="product-card" data-id="202">
             <div class="product-img-wrapper">
                 <img src="t2.jpg" alt="تيشيرت ليفربول">
@@ -692,67 +695,14 @@
                 </div>
             </div>
         </div>
-
-        <!-- منتج 3: ريال مدريد -->
-        <div class="product-card" data-id="203">
-            <div class="product-img-wrapper">
-                <img src="t3.jpg" alt="تيشيرت ريال مدريد">
-            </div>
-            <div class="product-info">
-                <div>
-                    <p class="product-category">تيشيرتات كورة</p>
-                    <h4 class="product-title">تيشيرت نادي ريال مدريد الملكي</h4>
-                    <p class="product-price" data-price="300">300 ج.م</p>
-                </div>
-                <div>
-                    <div class="size-selector">
-                        <label>المقاس:</label>
-                        <select class="product-size">
-                            <option value="M">M</option>
-                            <option value="L">L</option>
-                            <option value="XL">XL</option>
-                            <option value="XXL">XXL</option>
-                        </select>
-                    </div>
-                    <button class="quick-add-btn quick-add">إضافة للسلة <i class="fa-solid fa-plus"></i></button>
-                </div>
-            </div>
-        </div>
-
-        <!-- منتج 4: فرنسا -->
-        <div class="product-card" data-id="204">
-            <div class="product-img-wrapper">
-                <img src="t4.jpg" alt="تيشيرت منتخب فرنسا">
-            </div>
-            <div class="product-info">
-                <div>
-                    <p class="product-category">تيشيرتات كورة</p>
-                    <h4 class="product-title">تيشيرت منتخب فرنسا الفاخر</h4>
-                    <p class="product-price" data-price="300">300 ج.م</p>
-                </div>
-                <div>
-                    <div class="size-selector">
-                        <label>المقاس:</label>
-                        <select class="product-size">
-                            <option value="M">M</option>
-                            <option value="L">L</option>
-                            <option value="XL">XL</option>
-                            <option value="XXL">XXL</option>
-                        </select>
-                    </div>
-                    <button class="quick-add-btn quick-add">إضافة للسلة <i class="fa-solid fa-plus"></i></button>
-                </div>
-            </div>
-        </div>
     </div>
 
-    <!-- ================= أقسام المنتجات الكاجوال الأخرى ================= -->
+    <!-- قسم تيشيرتات الموضة الكاجوال -->
     <div class="section-title" id="summer-tshirts">
         <h3>تيشيرتات الموضة الكاجوال الصيفية</h3>
     </div>
 
-   
-
+    <div class="products-container">
         <div class="product-card" data-id="102">
             <div class="product-img-wrapper">
                 <img src="https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=600" alt="تيشيرت بيزك">
@@ -779,7 +729,7 @@
         </div>
     </div>
 
-    <!-- شاركنا رأيك التفاعلي -->
+    <!-- الآراء والتواصل -->
     <div class="section-title">
         <h3>آراء زبائننا وشاركونا تجربتكم</h3>
     </div>
@@ -795,7 +745,6 @@
                     <select id="reviewRating" required>
                         <option value="5">⭐⭐⭐⭐⭐ (ممتاز جداً)</option>
                         <option value="4">⭐⭐⭐⭐ (جيد جداً)</option>
-                        <option value="3">⭐⭐⭐ (متوسط)</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -816,7 +765,6 @@
         </div>
     </div>
 
-    <!-- التواصل والاستفسارات -->
     <div class="section-title" id="contact">
         <h3>التواصل والاستفسارات</h3>
     </div>
@@ -825,24 +773,12 @@
         <div class="contact-card">
             <i class="fa-solid fa-phone-volume"></i>
             <h4>اتصل بنا مباشرة</h4>
-            <p>يسعدنا استقبال مكالماتكم للاستفسار والطلب</p>
             <a href="tel:+201273799978" class="contact-link">01273799978</a>
-        </div>
-
-        <div class="contact-card">
-            <i class="fa-solid fa-clock"></i>
-            <h4>مواعيد العمل</h4>
-            <p>نحن جاهزون لخدمتكم طوال أيام الأسبوع</p>
-            <span>من 10:00 صباحاً وحتى 11:00 مساءً</span>
         </div>
     </div>
 
     <footer>
         <p>جميع الحقوق محفوظة لـ SAYED STORE © 2026</p>
-        <div class="social-icons">
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-facebook"></i></a>
-        </div>
     </footer>
 
     <a href="https://wa.me/201273799978" class="whatsapp-float" target="_blank">
@@ -850,7 +786,7 @@
         <span>استفسر الآن</span>
     </a>
 
-    <!-- كود الجافا سكريبت الذكي لتشغيل السلة والـ PWA الفوري -->
+    <!-- السكربت المحدث مضافاً إليه ميزة السحب الذكي للإغلاق -->
     <script>
         const cartIcon = document.getElementById('cartIcon');
         const cartSidebar = document.getElementById('cartSidebar');
@@ -868,27 +804,26 @@
 
         let cartItems = [];
 
+        // تفعيل الـ PWA
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('sw.js?v=2')
-                .then(reg => {
-                    console.log('تم تفعيل نظام تطبيق الهاتف الفوري بنجاح!', reg);
-                    if (reg.waiting) {
-                        reg.waiting.postMessage({ type: 'SKIP_WAITING' });
-                    }
-                })
-                .catch(err => console.log('حدث خطأ في النظام:', err));
+                navigator.serviceWorker.register('sw.js?v=2').then(reg => {
+                    console.log('PWA Ready!');
+                });
             });
         }
 
+        // فتح السلة
         cartIcon.addEventListener('click', () => {
             cartSidebar.classList.add('active');
             cartOverlay.classList.add('active');
         });
 
+        // غلق السلة
         function closeCartFunc() {
             cartSidebar.classList.remove('active');
             cartOverlay.classList.remove('active');
+            cartSidebar.style.left = ''; // إعادة تعيين لضمان عمل الـ CSS بشكل طبيعي
         }
 
         closeCart.addEventListener('click', closeCartFunc);
@@ -899,6 +834,40 @@
             document.getElementById('football-jerseys').scrollIntoView({ behavior: 'smooth' });
         });
 
+        // ================= كود سحب السلة بالإصبع لليسار (Swipe to Close) =================
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        cartSidebar.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        cartSidebar.addEventListener('touchmove', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            let moveX = touchEndX - touchStartX;
+
+            // بما أن السلة على اليسار، فالسحب للإغلاق يكون باتجاه اليسار (قيمة سالبة)
+            if (moveX < 0) {
+                // تحريك السلة مع الإصبع بشكل حي لإعطاء شعور سلس وممتاز
+                cartSidebar.style.left = moveX + 'px';
+            }
+        }, { passive: true });
+
+        cartSidebar.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            let finalMoveX = touchEndX - touchStartX;
+
+            // إذا سحب المستخدم مسافة أكبر من 90 بكسل لليسار، يتم إغلاق السلة فوراً
+            if (finalMoveX < -90) {
+                closeCartFunc();
+            } else {
+                // إذا كانت السحبة قصيرة، تعود السلة لمكانها المفتوح تلقائياً
+                cartSidebar.style.left = '0px';
+            }
+        }, { passive: true });
+        // =========================================================================
+
+        // إضافة المنتجات للستور
         quickAddBtns.forEach(button => {
             button.addEventListener('click', (e) => {
                 const productCard = e.target.closest('.product-card');
@@ -925,7 +894,6 @@
 
         function updateCartUI() {
             cartBody.innerHTML = '';
-
             if (cartItems.length === 0) {
                 cartBody.appendChild(emptyCartMsg);
                 cartBadge.innerText = '0';
@@ -965,28 +933,18 @@
 
         checkoutBtn.addEventListener('click', () => {
             if (cartItems.length === 0) {
-                alert('سلتك فارغة، من فضلك أضف بعض المنتجات أولاً!');
+                alert('سلتك فارغة!');
                 return;
             }
-
-            let message = "مرحباً سيد ستور (SAYED STORE)، أريد طلب تيشرتات كرة القدم التالية:\n\n";
+            let message = "مرحباً سيد ستور، أريد طلب المنتجات التالية:\n\n";
             let total = 0;
-
             cartItems.forEach((item, index) => {
                 const itemTotal = item.price * item.quantity;
                 total += itemTotal;
-                message += `${index + 1}. ${item.title}\n`;
-                message += `   - المقاس: ${item.size}\n`;
-                message += `   - الكمية: ${item.quantity}\n`;
-                message += `   - السعر: ${itemTotal} ج.م\n\n`;
+                message += `${index + 1}. ${item.title} (مقاس: ${item.size}) × ${item.quantity} = ${itemTotal} ج.م\n`;
             });
-
-            message += `-------------------------\n`;
-            message += `💰 الإجمالي الكلي: ${total} ج.م\n\n`;
-            message += `يرجى تأكيد الطلب وتوضيح تفاصيل الشحن والاسم.`;
-
-            const whatsappUrl = `https://wa.me/201273799978?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
+            message += `\n💰 الإجمالي الكلي: ${total} ج.م`;
+            window.open(`https://wa.me/201273799978?text=${encodeURIComponent(message)}`, '_blank');
         });
 
         addReviewForm.addEventListener('submit', (e) => {
@@ -994,23 +952,21 @@
             const name = document.getElementById('reviewerName').value;
             const rating = document.getElementById('reviewRating').value;
             const text = document.getElementById('reviewText').value;
-
-            let starString = '';
-            for(let i=0; i<rating; i++) { starString += '⭐'; }
+            let stars = '⭐'.repeat(parseInt(rating));
 
             const newReviewHTML = `
                 <div class="user-review-card">
                     <div class="user-review-header">
                         <span class="user-review-name">${name}</span>
-                        <span class="user-review-stars">${starString}</span>
+                        <span class="user-review-stars">${stars}</span>
                     </div>
                     <p class="user-review-text">${text}</p>
                 </div>
             `;
             reviewsFeed.insertAdjacentHTML('afterbegin', newReviewHTML);
             addReviewForm.reset();
+            alert('تم نشر رأيك بنجاح!');
         });
     </script>
 </body>
 </html>
-
