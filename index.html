@@ -5,14 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>سيد ستور | SAYED STORE - للأناقة والملابس الرياضية</title>
     
-    <!-- إعدادات تحويل الموقع إلى تطبيق موبايل (PWA) المحدثة -->
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0f172a">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link class="apple-touch-icon" href="icon.png">
 
-    <!-- font-awesome & Tajawal Font -->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -30,7 +28,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Tajawal', sans-serif;
-            transition: all 0.3s ease;
+            transition: transform 0.1s linear, background-color 0.3s, color 0.3s;
         }
 
         body {
@@ -130,13 +128,6 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
-        .hero p {
-            font-size: 22px;
-            font-weight: 300;
-            margin-bottom: 30px;
-            color: #e2e8f0;
-        }
-
         .hero-btn {
             background-color: var(--accent-color);
             color: #fff;
@@ -148,12 +139,6 @@
             box-shadow: 0 4px 15px rgba(184, 144, 71, 0.4);
             cursor: pointer;
             border: none;
-        }
-
-        .hero-btn:hover {
-            background-color: #fff;
-            color: var(--primary-color);
-            transform: translateY(-3px);
         }
 
         .features-bar {
@@ -170,16 +155,6 @@
             font-size: 28px;
             color: var(--accent-color);
             margin-bottom: 10px;
-        }
-
-        .feature-item h4 {
-            font-size: 16px;
-            margin-bottom: 5px;
-        }
-
-        .feature-item p {
-            font-size: 13px;
-            color: #94a3b8;
         }
 
         .section-title {
@@ -226,11 +201,6 @@
             flex-direction: column;
         }
 
-        .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 25px rgba(15, 23, 42, 0.1);
-        }
-
         .product-img-wrapper {
             position: relative;
             overflow: hidden;
@@ -251,14 +221,6 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-        }
-
-        .product-category {
-            font-size: 12px;
-            color: #64748b;
-            text-transform: uppercase;
-            margin-bottom: 5px;
-            font-weight: bold;
         }
 
         .product-title {
@@ -283,17 +245,10 @@
             gap: 10px;
         }
 
-        .size-selector label {
-            font-size: 13px;
-            color: #64748b;
-        }
-
         .size-selector select {
             padding: 5px 10px;
             border: 1px solid #cbd5e1;
             border-radius: 4px;
-            background-color: #fff;
-            outline: none;
         }
 
         .quick-add {
@@ -307,15 +262,11 @@
             font-weight: bold;
         }
 
-        .quick-add:hover {
-            background-color: var(--accent-color);
-        }
-
-        /* تعديل الأنيميشن للسلة لتدعم السحب السلس */
+        /* تحسين هيكل وتصميم السلة لتدعم تحريك الـ Transform السلس للغاية */
         .cart-sidebar {
             position: fixed;
             top: 0;
-            left: -400px;
+            left: 0;
             width: 380px;
             height: 100vh;
             background-color: #fff;
@@ -323,12 +274,13 @@
             z-index: 2000;
             display: flex;
             flex-direction: column;
-            transition: left 0.3s ease-out;
-            touch-action: pan-y; /* يسمح بالسكول العمودي ويحجز السحب الأفقي للكود */
+            transform: translateX(-105%); /* إخفاء السلة كلياً لجهة اليسار بمرونة */
+            transition: transform 0.3s ease-out;
+            touch-action: translateY; /* يسمح بالنزول بداخل السلة ويمنع السحب الافتراضي للمتصفح */
         }
 
         .cart-sidebar.active {
-            left: 0;
+            transform: translateX(0); /* إظهار السلة */
         }
 
         .cart-header {
@@ -371,25 +323,6 @@
             flex: 1;
         }
 
-        .cart-item-title {
-            font-size: 15px;
-            font-weight: 500;
-        }
-
-        .cart-item-size {
-            font-size: 12px;
-            color: #64748b;
-            background: #f1f5f9;
-            padding: 2px 6px;
-            border-radius: 3px;
-        }
-
-        .cart-item-price {
-            color: var(--accent-color);
-            font-weight: bold;
-            margin-top: 5px;
-        }
-
         .remove-item {
             color: #ef4444;
             cursor: pointer;
@@ -421,7 +354,6 @@
             border-radius: 4px;
             border: none;
             cursor: pointer;
-            font-size: 16px;
         }
 
         .cart-overlay {
@@ -488,16 +420,6 @@
             border-right: 4px solid var(--accent-color);
         }
 
-        .user-review-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-
-        .user-review-stars {
-            color: #fbbf24;
-        }
-
         .contact-container {
             max-width: 1200px;
             margin: 0 auto 80px;
@@ -515,19 +437,12 @@
             text-align: center;
         }
 
-        .contact-card i {
-            font-size: 40px;
-            color: var(--accent-color);
-            margin-bottom: 15px;
-        }
-
         .contact-link {
             display: inline-block;
             font-size: 18px;
             font-weight: bold;
             color: var(--primary-color);
             text-decoration: none;
-            border-bottom: 2px dashed var(--accent-color);
         }
 
         .whatsapp-float {
@@ -551,13 +466,6 @@
             color: #94a3b8;
             text-align: center;
             padding: 40px 20px;
-            border-top: 3px solid var(--accent-color);
-        }
-
-        .social-icons a {
-            color: #94a3b8;
-            margin: 0 10px;
-            font-size: 20px;
         }
 
         @media (max-width: 992px) {
@@ -568,10 +476,8 @@
 
         @media (max-width: 600px) {
             .hero h2 { font-size: 28px; }
-            .products-container { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
-            .product-img-wrapper { height: 320px; }
-            .cart-sidebar { width: 100%; left: -100%; }
-            .cart-sidebar.active { left: 0; }
+            .cart-sidebar { width: 100%; transform: translateX(-105%); } /* على الموبايل تغطي العرض كامل وتختفي بسلاسة */
+            .cart-sidebar.active { transform: translateX(0); }
             .whatsapp-float span { display: none; }
             .whatsapp-float { padding: 15px; border-radius: 50%; }
         }
@@ -620,7 +526,6 @@
         </div>
     </div>
 
-    <!-- السلة المعدلة التي تدعم السحب -->
     <div class="cart-sidebar" id="cartSidebar">
         <div class="cart-header">
             <h3>سلة المشتريات</h3>
@@ -638,13 +543,12 @@
         </div>
     </div>
 
-    <!-- ================= قسم تيشيرتات كرة القدم ================= -->
+    <!-- تيشيرتات كرة القدم -->
     <div class="section-title" id="football-jerseys">
         <h3>تيشيرتات كرة القدم الأكثر طلباً لعام 2026</h3>
     </div>
 
     <div class="products-container">
-        <!-- منتج 1 -->
         <div class="product-card" data-id="201">
             <div class="product-img-wrapper">
                 <img src="t1.jpg" alt="تيشيرت برشلونة">
@@ -670,7 +574,6 @@
             </div>
         </div>
 
-        <!-- منتج 2 -->
         <div class="product-card" data-id="202">
             <div class="product-img-wrapper">
                 <img src="t2.jpg" alt="تيشيرت ليفربول">
@@ -697,7 +600,7 @@
         </div>
     </div>
 
-    <!-- قسم تيشيرتات الموضة الكاجوال -->
+    <!-- كاجوال صيفي -->
     <div class="section-title" id="summer-tshirts">
         <h3>تيشيرتات الموضة الكاجوال الصيفية</h3>
     </div>
@@ -729,7 +632,7 @@
         </div>
     </div>
 
-    <!-- الآراء والتواصل -->
+    <!-- التقييمات -->
     <div class="section-title">
         <h3>آراء زبائننا وشاركونا تجربتكم</h3>
     </div>
@@ -786,7 +689,7 @@
         <span>استفسر الآن</span>
     </a>
 
-    <!-- السكربت المحدث مضافاً إليه ميزة السحب الذكي للإغلاق -->
+    <!-- الجافا سكريبت الاحترافي لإغلاق السلة بالسحب الفعلي والسلس -->
     <script>
         const cartIcon = document.getElementById('cartIcon');
         const cartSidebar = document.getElementById('cartSidebar');
@@ -804,26 +707,18 @@
 
         let cartItems = [];
 
-        // تفعيل الـ PWA
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('sw.js?v=2').then(reg => {
-                    console.log('PWA Ready!');
-                });
-            });
-        }
-
         // فتح السلة
         cartIcon.addEventListener('click', () => {
             cartSidebar.classList.add('active');
             cartOverlay.classList.add('active');
+            cartSidebar.style.transform = "translateX(0)"; 
         });
 
-        // غلق السلة
+        // إغلاق السلة وإعادة التصفير للأنيميشن
         function closeCartFunc() {
             cartSidebar.classList.remove('active');
             cartOverlay.classList.remove('active');
-            cartSidebar.style.left = ''; // إعادة تعيين لضمان عمل الـ CSS بشكل طبيعي
+            cartSidebar.style.transform = ""; 
         }
 
         closeCart.addEventListener('click', closeCartFunc);
@@ -834,40 +729,49 @@
             document.getElementById('football-jerseys').scrollIntoView({ behavior: 'smooth' });
         });
 
-        // ================= كود سحب السلة بالإصبع لليسار (Swipe to Close) =================
-        let touchStartX = 0;
-        let touchEndX = 0;
+        // ================= كود سحب السلة بالإصبع المطور بالاعتماد على الـ Transform =================
+        let startX = 0;
+        let currentX = 0;
+        let isSwiping = false;
 
         cartSidebar.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
+            startX = e.touches[0].clientX;
+            isSwiping = true;
+            // إلغاء تأثير الأنيميشن المؤقت أثناء السحب الفعلي ليعطي إحساساً فورياً بالاستجابة ليد المستخدم
+            cartSidebar.style.transition = 'none';
         }, { passive: true });
 
         cartSidebar.addEventListener('touchmove', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            let moveX = touchEndX - touchStartX;
+            if (!isSwiping) return;
+            currentX = e.touches[0].clientX;
+            let diffX = currentX - startX;
 
-            // بما أن السلة على اليسار، فالسحب للإغلاق يكون باتجاه اليسار (قيمة سالبة)
-            if (moveX < 0) {
-                // تحريك السلة مع الإصبع بشكل حي لإعطاء شعور سلس وممتاز
-                cartSidebar.style.left = moveX + 'px';
+            // السحب لليسار لغلق السلة (قيمة سالبة)
+            if (diffX < 0) {
+                cartSidebar.style.transform = `translateX(${diffX}px)`;
             }
         }, { passive: true });
 
         cartSidebar.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            let finalMoveX = touchEndX - touchStartX;
+            if (!isSwiping) return;
+            isSwiping = false;
+            
+            // إعادة تفعيل الترانزيشن لتتحرك السلة بنعومة عند تركها
+            cartSidebar.style.transition = 'transform 0.3s ease-out';
+            
+            let diffX = currentX - startX;
 
-            // إذا سحب المستخدم مسافة أكبر من 90 بكسل لليسار، يتم إغلاق السلة فوراً
-            if (finalMoveX < -90) {
+            // إذا تحرك الإصبع لليسار بمسافة أكبر من 80 بكسل، أغلق السلة نهائياً
+            if (diffX < -80) {
                 closeCartFunc();
             } else {
-                // إذا كانت السحبة قصيرة، تعود السلة لمكانها المفتوح تلقائياً
-                cartSidebar.style.left = '0px';
+                // إن لم تتخطَ الـ 80 بكسل، اترك السلة مفتوحة وثبتها في مكانها مجدداً
+                cartSidebar.style.transform = "translateX(0)";
             }
-        }, { passive: true });
+        });
         // =========================================================================
 
-        // إضافة المنتجات للستور
+        // إضافة المنتجات وتحديث السلة والعمليات الحسابية
         quickAddBtns.forEach(button => {
             button.addEventListener('click', (e) => {
                 const productCard = e.target.closest('.product-card');
@@ -889,6 +793,7 @@
                 updateCartUI();
                 cartSidebar.classList.add('active');
                 cartOverlay.classList.add('active');
+                cartSidebar.style.transform = "translateX(0)";
             });
         });
 
