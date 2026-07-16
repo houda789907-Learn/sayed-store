@@ -1,19 +1,22 @@
 {
-  "nav_colors": true,
   "name": "SAYED STORE - سيد ستور",
   "short_name": "SayedStore",
   "description": "متجر سيد ستور للأناقة والملابس الرجالية الفاخرة لعام 2026",
   "start_url": "index.html",
   "display": "standalone",
   "background_color": "#f8fafc",
-  "theme-color": "#0f172a",
+  "theme_color": "#0f172a",
   "orientation": "portrait-primary",
   "icons": [
     {
       "src": "icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon.png",
       "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/png"
     }
   ]
 }
